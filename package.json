@@ -1,0 +1,24 @@
+{
+  "name": "whatsapp-botto-re",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Somnath Das and Alen Yohannan",
+  "license": "OpenSource",
+  "dependencies": {
+    "@open-wa/wa-automate": "^1.9.103",
+    "axios": "^0.19.2",
+    "fbvideos": "^1.0.2",
+    "fs-extra": "^9.0.1",
+    "mal-api": "^2.0.0",
+    "moment": "^2.27.0",
+    "nana-api": "^1.1.2",
+    "node-fetch": "^2.6.0",
+    "node-gtts": "^2.0.2",
+    "wa-decrypt": "^1.0.4"
+  }
+}
