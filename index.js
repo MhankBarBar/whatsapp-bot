@@ -55,7 +55,7 @@ async function msgHandler (client, message) {
         const { id, pushname } = sender
         const { name } = chat
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
-        const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!help','test','!meme','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!Mystery Video','!Pokemon','!waifu','!waifu']
+        const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!help','!meme','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!Mystery Video','!Pokemon','!waifu','!waifu']
         const cmds = commands.map(x => x + '\\b').join('|')
         const cmd = type === 'chat' ? body.match(new RegExp(cmds, 'gi')) : type === 'image' && caption ? caption.match(new RegExp(cmds, 'gi')) : ''
 
@@ -95,7 +95,7 @@ async function msgHandler (client, message) {
 				const cn = args[1]             
 				const response = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/'+cn+'/')
 				const { cases, todayCases, deaths, todayDeaths, recovered, active } = response.data
-				await client.sendText(from, `🌎️Covid Info🌎️\n\n✨️Total Kasus: ${cases}\n📆Kasus Hari ini: ${todayCases}\n>Total Meninggal: ${deaths}\n> Meninggal hari ini: ${todayDeaths}\n> Kasus Aktif: ${active}.`)
+				await client.sendText(from, `🌎️Covid Info🌎️\n\n✨️Total Kasus: ${cases}\n📆Kasus Hari ini: ${todayCases}\n> Total Meninggal: ${deaths}\n> Meninggal hari ini: ${todayDeaths}\n> Kasus Aktif: ${active}.`)
 }
 		    break
 		case '!linkGrup':
@@ -103,9 +103,6 @@ async function msgHandler (client, message) {
 				const inviteLink = await client.getGroupInviteLink(chat.id);
 				client.sendLinkWithAutoPreview(from, inviteLink, `Link group *${name}*`)
 }
-		    break
-		case 'test':
-			client.sendText(from, `${from}\n${chat}\n${message}\n${chat.id}`)
 		    break
 		case '!add':
 			if(isGroupMsg){
