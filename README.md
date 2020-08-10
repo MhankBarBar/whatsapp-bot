@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-# Whatsapp-Botto
-Hello fellow users, Whatsapp Botto: Re is whatsapp automation script or more like a bot that responds to particular keywords and few other features that we are working on.
+# whatsapp-bot
+Hello fellow users, Whatsapp Bot is whatsapp automation script or more like a bot that responds to particular keywords and few other features that we are working on.
 
 This is an open-source program written in Javascript. 
 This project require NodeJS v12.
@@ -8,7 +7,7 @@ This project require NodeJS v12.
 ## Clone this project
 
 ```bash
-> git clone https://github.com/SomnathDas/Whatsapp-Botto-Re.git
+> git clone https://github.com/MhankBarBar/whatsapp-bot
 ```
 
 ## Install the dependencies:
