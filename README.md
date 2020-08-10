@@ -40,5 +40,5 @@ https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md
 
 ## Special Thanks
 For Basic Implementation:
-1. Open-Wa : https://github.com/open-wa/wa-automate-nodejs.git
-2. imageToSticker : https://github.com/YogaSakti/imageToSticker
+1. [Open-Wa](https://github.com/open-wa/wa-automate-nodejs)
+2. [imageToSticker](https://github.com/YogaSakti/imageToSticker)
