@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Whatsapp-Botto-Re
+# Whatsapp-Botto
 Hello fellow users, Whatsapp Botto: Re is whatsapp automation script or more like a bot that responds to particular keywords and few other features that we are working on.
 
 This is an open-source program written in Javascript. 
@@ -46,6 +46,3 @@ https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md
 For Basic Implementation:
 1. Open-Wa : https://github.com/open-wa/wa-automate-nodejs.git
 2. imageToSticker : https://github.com/YogaSakti/imageToSticker
-=======
-# whatsapp-bot
->>>>>>> f64a60522200608bf81ad2efaf28f0a3be74dd7f
