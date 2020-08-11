@@ -1,8 +1,13 @@
-﻿const { create, decryptMedia } = require('@open-wa/wa-automate')
+const { create, decryptMedia } = require('@open-wa/wa-automate')
 const fs = require('fs-extra')
 const moment = require('moment')
 const fetch = require('node-fetch')
 const axios = require('axios')
+const gttsEn = require('node-gtts')('en')
+const gttsId = require('node-gtts')('id')
+const path = require('path')
+const pathId = path.join(__dirname, 'tts_id.wav')
+const pathEn = path.join(__dirname, 'tts_en.wav')
 const kopit = require('./korona')
 const fbvid = require('fbvideos');
 
@@ -55,7 +60,7 @@ async function msgHandler (client, message) {
         const { id, pushname } = sender
         const { name } = chat
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
-        const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!help','test','!meme','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!Mystery Video','!Pokemon','!waifu','!waifu']
+        const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!help','!owner','!meme','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!Mystery Video','!Pokemon','!waifu','!waifu']
         const cmds = commands.map(x => x + '\\b').join('|')
         const cmd = type === 'chat' ? body.match(new RegExp(cmds, 'gi')) : type === 'image' && caption ? caption.match(new RegExp(cmds, 'gi')) : ''
 
@@ -104,44 +109,65 @@ async function msgHandler (client, message) {
 				client.sendLinkWithAutoPreview(from, inviteLink, `Link group *${name}*`)
 }
 		    break
-		case 'test':
-			client.sendText(from, `${from}\n${chat}\n${message}\n${chat.id}`)
+		case '!owner':
+			var owner = from.split('-')[0]
+			client.sendText(from, `[${owner}]`)
 		    break
 		case '!add':
 			if(isGroupMsg){
 				if(args.length >=2){
-					org = args[1]
-					client.addParticipant(from,`${org}@c.us`)
+					var wkwk = `${from.split('-')[0]}@c.us`
+					if(message.author === wkwk ){
+						org = args[1]
+						client.addParticipant(from,`${org}@c.us`)
+					}else{
+						client.sendText(from, 'Fitur ini hanya bisa di pakai oleh admin[owner]')
 		}
+	}
 }
 		    break
 		case '!kick':
 			if(isGroupMsg){
 				if(args.length >=2){
-					wong = args[1]
-					client.removeParticipant(from,`${wong}@c.us`)
+					var wkwk = `${from.split('-')[0]}@c.us`
+					if(message.author === wkwk ){
+						wong = args[1]
+						client.removeParticipant(from,`${wong}@c.us`)
+					}else{
+						client.sendText(from, 'Fitur ini hanya bisa di pakai oleh admin[owner]')
+		}
 	}
 }
 		    break
-		case '!leave':
+	/*	case '!leave':
 			if(isGroupMsg){
 				client.sendText(from,'Sayonara')
 				client.leaveGroup(from)
 }
-		    break
+		    break*/
 		case '!promote':
 			if(isGroupMsg){
 				if(args.length >=2){
-					prom = args[1]
-					client.promoteParticipant(from,`${prom}@c.us`)
+					var wkwk = `${from.split('-')[0]}@c.us`
+					if(message.author === wkwk ){
+						prom = args[1]
+						client.promoteParticipant(from,`${prom}@c.us`)
+					}else{
+						client.sendText(from, 'Fitur ini hanya bisa di pakai oleh admin[owner]')
+		}
 	}
 }
 		    break
 		case '!demote':
 			if(isGroupMsg){
 				if(args.length >=2){
-					demo = args[1]
-					client.demoteParticipant(from,`${demo}@c.us`)
+					var wkwk = `${from.split('-')[0]}@c.us`
+					if(message.author === wkwk ){
+						demo = args[1]
+						client.demoteParticipant(from,`${demo}@c.us`)
+					}else{
+						client.sendText(from, 'Fitur ini hanya bisa di pakai oleh admin[owner]')
+		}
 	}
 }
 		    break
@@ -329,7 +355,7 @@ async function msgHandler (client, message) {
                         client.sendText(from, 'Ora Ora Ora Ora')
                     break
 		case '!help':
-                        client.sendText(from, `Hi *${pushname}*\n\nPerintah\n\n!sticker \nMengubah gambar ke stiker\n\n!neko\nMengirim gambar kucing acak\n\n!Pokemon Mengirim gambar pokemon acak \n \n!wallpaper \nMengirim wallpaper anime acak (beta)\n\n!Seasonal anime \nMenampilkan daftar anime musiman\n\n!info \nMenampilkan syarat dan ketentuan\n\n!quote\nMengirim quotedd\n\n!waifu\nMengirim gambar anime \n\n!covid country\nInfo covid19\n\n!linkGrup\nMengambil tautan undangan grup, [ bot admin ]\n\n!revLinkGrup\nMencabut tautan undangan saat ini\n\n!join linkgroup\nUntuk menambahkan bot ke grup anda`)
+                        client.sendText(from, `Hi *${pushname}*\n\nPerintah\n\n!sticker \nMengubah gambar ke stiker\n\n!neko\nMengirim gambar kucing acak\n\n!Pokemon Mengirim gambar pokemon acak \n \n!wallpaper \nMengirim wallpaper anime acak (beta)\n\n!Seasonal anime \nMenampilkan daftar anime musiman\n\n!info \nMenampilkan syarat dan ketentuan\n\n!quote\nMengirim quotedd\n\n!waifu\nMengirim gambar anime \n\n!covid country\nInfo covid19\n\n!linkGrup\nMengambil tautan undangan grup, [ bot admin ]\n\n!revLinkGrup\nMencabut tautan undangan saat ini\n\n!join https://chat.whatsapp.com/blablabla\nUntuk menambahkan bot ke grup anda\n\n[ Owner Only ]\n\n!add 628xxxx\nUntuk menambahkan anggota grup\n\n!kick 628xxx\nUntuk mengeluarkan member grup\n\n!promote 628xxx\nMenaikkan pangkat member menjadi admin\n\n!demote 628xxx\nMenurunkan pangkat admin menjadi member`)
                     break
 		case '!Seasonal anime':
                         client.sendText(from, 'Summer 2020 \n Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season \n Yahari Ore no Seishun Love Comedy wa Machigatteiru. Kan \n The God of High School \n Sword Art Online: Alicization - War of Underworld 2nd Season \n Enen no Shouboutai: Ni no Shou \n Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e \n Kanojo, Okarishimasu \n Deca-Dence \n Uzaki-chan wa Asobitai! \n Monster Musume no Oishasan')
