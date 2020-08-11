@@ -27,7 +27,7 @@ Run the Whatsapp bot
 
 # Menu
 ```
-Hi *Yann*
+Hi Name
 
 Perintah
 
@@ -61,7 +61,7 @@ Info covid19
 Mengambil tautan undangan grup, [ bot admin ]
 
 !revLinkGrup
-Mencabut tautan undangan saat ini
+Mencabut tautan undangan saat ini, [ bot admin ]
 
 !join https://chat.whatsapp.com/blablabla
 Untuk menambahkan bot ke grup anda
