@@ -60,7 +60,11 @@ async function msgHandler (client, message) {
         const { id, pushname } = sender
         const { name } = chat
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
+<<<<<<< HEAD
         const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!help','!owner','!meme','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!Mystery Video','!Pokemon','!waifu','!waifu']
+=======
+        const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!help','!meme','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!Mystery Video','!Pokemon','!waifu','!waifu']
+>>>>>>> 416029c1a8b12c049da4951c2e93b06bd4effad1
         const cmds = commands.map(x => x + '\\b').join('|')
         const cmd = type === 'chat' ? body.match(new RegExp(cmds, 'gi')) : type === 'image' && caption ? caption.match(new RegExp(cmds, 'gi')) : ''
 
@@ -100,7 +104,7 @@ async function msgHandler (client, message) {
 				const cn = args[1]             
 				const response = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/'+cn+'/')
 				const { cases, todayCases, deaths, todayDeaths, recovered, active } = response.data
-				await client.sendText(from, `🌎️Covid Info🌎️\n\n✨️Total Kasus: ${cases}\n📆Kasus Hari ini: ${todayCases}\n>Total Meninggal: ${deaths}\n> Meninggal hari ini: ${todayDeaths}\n> Kasus Aktif: ${active}.`)
+				await client.sendText(from, `🌎️Covid Info🌎️\n\n✨️Total Kasus: ${cases}\n📆Kasus Hari ini: ${todayCases}\n> Total Meninggal: ${deaths}\n> Meninggal hari ini: ${todayDeaths}\n> Kasus Aktif: ${active}.`)
 }
 		    break
 		case '!linkGrup':
@@ -109,10 +113,13 @@ async function msgHandler (client, message) {
 				client.sendLinkWithAutoPreview(from, inviteLink, `Link group *${name}*`)
 }
 		    break
+<<<<<<< HEAD
 		case '!owner':
 			var owner = from.split('-')[0]
 			client.sendText(from, `[${owner}]`)
 		    break
+=======
+>>>>>>> 416029c1a8b12c049da4951c2e93b06bd4effad1
 		case '!add':
 			if(isGroupMsg){
 				if(args.length >=2){
