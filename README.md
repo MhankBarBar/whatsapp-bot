@@ -25,6 +25,62 @@ Run the Whatsapp bot
 > npm start
 ```
 
+# Menu
+```
+Hi Name
+
+Perintah
+
+!sticker 
+Mengubah gambar ke stiker
+
+!neko
+Mengirim gambar kucing acak
+
+!Pokemon Mengirim gambar pokemon acak 
+ 
+!wallpaper 
+Mengirim wallpaper anime acak (beta)
+
+!Seasonal anime 
+Menampilkan daftar anime musiman
+
+!info 
+Menampilkan syarat dan ketentuan
+
+!quote
+Mengirim quotedd
+
+!waifu
+Mengirim gambar anime 
+
+!covid country
+Info covid19
+
+!linkGrup
+Mengambil tautan undangan grup, [ bot admin ]
+
+!revLinkGrup
+Mencabut tautan undangan saat ini, [ bot admin ]
+
+!join https://chat.whatsapp.com/blablabla
+Untuk menambahkan bot ke grup anda
+
+[ Owner Only ]
+
+!add 628xxxx
+Untuk menambahkan member grup
+
+!kick 628xxx
+Untuk mengeluarkan member grup
+
+!promote 628xxx
+Menaikkan pangkat member menjadi admin
+
+!demote 628xxx
+Menurunkan pangkat admin menjadi member
+```
+
 ## Terms & Condition
 By using the bot you agreeing to our Terms and Conditions 
 ### Terms and conditions
