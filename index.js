@@ -231,75 +231,7 @@ async function msgHandler (client, message) {
 				client.sendText(from, 'Otw join gan')
 }
 		    break
-                case 'Make me a coffee':
-                        client.sendText(from, 'Make it yourslef, lazy baka *hmph*')
-                    break
-		case '!I love you':
-                        client.sendText(from, 'T-Thanks I-I mean *looks away blushing*')
-		    break
-                case '!God':
-                        client.sendText(from, '@Hooman|Neko is God')
-                    break
-                 case 'Se no':
-                        client.reply(from, 'Demo sonnan ja dame', message)
-                    break
-                 case 'Mou':
-                        client.reply(from, 'sonnan ja hora', message)
-                    break
-                 case 'Kokoro':
-                        client.sendText(from, 'wa shinka suru yo Motto motto')
-                    break
-                case '!Best girl':
-                        client.sendText(from, '*Blushes*')
-                    break
-                case 'Zelda' :
-                        client.sendText(from, 'Link')
-                    break 
-                case 'Indeed' :
-                        client.sendText(from, 'Pathetic')
-                    break 
-		case 'Link' :
-                        client.sendText(from, 'Zelda')
-                    break
-               case 'Can you beat Goku though' :
-                        client.sendText(from, '*I can and I will*')
-                    break
-                case 'freedom' :
-                        client.sendFileFromUrl(from, 'https://i.ibb.co/6J9ST0d/IMG-20200731-WA0791.jpg','freedom.jpg','...')
-                    break
-                case '!Botw' :
-                        client.sendFileFromUrl(from, 'https://mocah.org/uploads/posts/197514-princess-zelda-2350x1175.png','BOTW.jpg','...')
-                    break
-                case '!Zelda Timeline' :
-                        client.sendFileFromUrl(from, 'https://gamepedia.cursecdn.com/zelda_gamepedia_en/b/b8/E_Timeline.png','Zelda Timeline.png','...')
-                    break
-                case '!S-1':
-                        client.sendText(from, 'Connection Status = Active')
-                    break
-                case 'El Psy Congroo':
-                        client.sendFileFromUrl(from, 'https://i.ibb.co/s9Rw8hN/index.jpg','Steins;Gate.jpg','El Psy Congroo')
-                    break
-                case '!Do you love me':
-                        client.sendText(from, 'U-Uh... n-no! *blushes* O-Of course not, idiot!')
-                    break
-                case 'I love Rem' :
-                case 'i love rem' :
-                case 'I love rem' :
-                case 'I Love Rem' :
-                        client.sendText(from, 'Who is Rem?')
-                    break
-                case 'yo':
-                        client.sendText(from, 'Hiya *High-fives*')
-                    break
-                case 'Never gonna':
-                        client.sendText(from, 'give you up')
-                    break
-                case 'never gonna':
-                        client.sendText(from, 'Let you down')
-                    break
-                case 'Never gonna run around':
-                        client.sendText(from, 'and dessert you')
-                    break 
+                    
                 case '!Waifu':
                 case '!waifu': 
                         q8 = q2 = Math.floor(Math.random() * 98) + 10;
@@ -322,11 +254,7 @@ async function msgHandler (client, message) {
                        q4 = Math.floor(Math.random() * 800) + 100;
                        client.sendFileFromUrl(from, 'https://wallpaperaccess.com/download/anime-'+q4,'Anime.png','Here is your wallpaper')
                     break
-                case 'Tsundere' :
-                case 'tsundere' : 
-                        client.sendText(from, 'I am not a tsundere, baka!')       
-                    break
-		case '!quote' :
+                case '!quote' :
 		case '!quotes' :
 		case '!Quote' :
 			fetch('https://api.quotable.io/random', {
@@ -344,30 +272,6 @@ async function msgHandler (client, message) {
 			const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
 			await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
 		    break
-		case '!toxic':
-			const toxidd = ['babi', 'monyet', 'anjing', 'dino', 'jembut',
-			'memek', 'kontol', 'tempik', 'bool', 'gay', 'lesbi', 'mpshh',
-			'sempak', 'cangcut', 'bagong', 'torpedo', 'bangsat', 'maling',
-			'copet', 'ngentot'
-			]
-			const randToxic = toxidd[Math.floor(Math.random() * toxidd.length)]
-			const err = [`muka lo kek ${randToxic}`, `anda tau ${randToxic} ?`,`${randToxic} Lo ${randToxic}`,
-			`ngapa ${randToxic} ga seneng?`,`ribut sini lo ${randToxic}`,`jangan ngakak lo ${randToxic}`,
-			`wey ${randToxic}!!`,`aku sih owh aja ya ${randToxic}`,`ga seneng send lokasi lo ${randToxic}`,
-			`capek w ${randToxic}`, `hari ini kau minat gelut ${toxidd[2]} ?`,
-			`w ganteng dan lo kek ${randToxic}`,`bucin lo ${randToxic}`,`najis baperan kek ${randToxic}`,
-			`nge-teh ${randToxic}`,`gaya lo sok iye, mukalo kek ${randToxic}`,`${randToxic} awokwowkok`
-			]
-			const errAcak = err[Math.floor(Math.random() * err.lenght)]
-			client.sendText(from, `${errAcak}`)
-		    break
-                case '!Mystery Video':
-                        client.sendText(from, 'https://youtu.be/dQw4w9WgXcQ')
-		    break
-                case 'Fuck' :
-                case 'fuck' :
-                        client.sendText(from, 'Hmph! *crosses arms* Take that back!')
-                    break
                 case '!fb':
                     if (args.length >=2) {
                         const urlvid = args[1]
@@ -383,22 +287,6 @@ async function msgHandler (client, message) {
                     } else {
                         client.reply(from,"The format is !fb [URL Video]",message)
                     }
-                    break
-                case 'sex' :
-                case 'Sex' :
-                case 'nudes' :
-                case 'porn' :
-                        client.sendText(from, 'Go home, you are horny!')
-                    break
-                case 'ora ora ora ora' :
-                case 'Ora Ora Ora Ora' :
-                case 'Ora ora ora ora' :
-                        client.sendText(from, 'Muda Muda Muda Muda')
-                    break
-                case 'Muda Muda Muda Muda' :
-                case 'Muda muda muda muda' :
-                case 'muda muda muda muda' :
-                        client.sendText(from, 'Ora Ora Ora Ora')
                     break
 		case '!help':
                         client.sendText(from, `Hi *${pushname}*\n\nPerintah\n\n!sticker \nMengubah gambar ke stiker\n\n!neko\nMengirim gambar kucing acak\n\n!Pokemon Mengirim gambar pokemon acak \n \n!wallpaper \nMengirim wallpaper anime acak (beta)\n\n!Seasonal anime \nMenampilkan daftar anime musiman\n\n!info \nMenampilkan syarat dan ketentuan\n\n!quote\nMengirim quotedd\n\n!waifu\nMengirim gambar anime \n\n!linkGrup\nMengambil tautan undangan grup, [ bot admin ]\n\n!revLinkGrup\nMencabut tautan undangan saat ini, [ bot admin ]\n\n!join https://chat.whatsapp.com/blablabla\nUntuk menambahkan bot ke grup anda\n\n!lirik aku-bukan-boneka\nMenampilkan lirik lagu aku bukan boneka\n\n!ytmp3 https://youtu.be/6l5V3BWDcMw\nMendownload mp3 dari YouTube\n\n[ Owner Only ]\n\n!add 628xxxx\nUntuk menambahkan anggota grup\n\n!kick 628xxx\nUntuk mengeluarkan member grup\n\n!promote 628xxx\nMenaikkan pangkat member menjadi admin\n\n!demote 628xxx\nMenurunkan pangkat admin menjadi member`)
