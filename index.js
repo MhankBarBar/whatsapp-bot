@@ -95,13 +95,8 @@ async function msgHandler (client, message) {
                 case '!hello':
                         client.reply(from, `Hello *${pushname}*, How can I help?`, message)
                     break
-		case '!covid':
-			if (args.length >=2) {
-				const cn = args[1]             
-				const response = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/'+cn+'/')
-				const { cases, todayCases, deaths, todayDeaths, recovered, active } = response.data
-				await client.sendText(from, `🌎️Covid Info🌎️\n\n✨️Total Kasus: ${cases}\n📆Kasus Hari ini: ${todayCases}\n> Total Meninggal: ${deaths}\n> Meninggal hari ini: ${todayDeaths}\n> Kasus Aktif: ${active}.`)
-}
+		case '!covid':            
+	                client.sendText(from, `${kopit()}`)
 		    break
 		case '!linkGrup':
 			if(isGroupMsg){
