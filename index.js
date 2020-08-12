@@ -75,11 +75,7 @@ async function msgHandler (client, message) {
         const { id, pushname } = sender
         const { name } = chat
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
-<<<<<<< HEAD
         const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!lirik','!quotemaker','!help','!owner','!meme','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!Mystery Video','!Pokemon','!waifu','!waifu','!fb','!ytmp3']
-=======
-        const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!help','!owner','!meme','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!Mystery Video','!Pokemon','!waifu','!waifu']
->>>>>>> 009191a4a173c06fda23a98e2b407db4129134b7
         const cmds = commands.map(x => x + '\\b').join('|')
         const cmd = type === 'chat' ? body.match(new RegExp(cmds, 'gi')) : type === 'image' && caption ? caption.match(new RegExp(cmds, 'gi')) : ''
 
@@ -114,15 +110,10 @@ async function msgHandler (client, message) {
                 case '!hello':
                         client.reply(from, `Hello *${pushname}*, How can I help?`, message)
                     break
-<<<<<<< HEAD
-		case '!covid':
+		/*case '!covid':
 			const result = await kopit()
 			client.sendText(from, kopit())
-=======
-		case '!covid':            
-	                client.sendText(from, `${kopit()}`)
->>>>>>> 009191a4a173c06fda23a98e2b407db4129134b7
-		    break
+		    break*/
 		case '!ytmp3':
 			if (args.length >=2){
                         	const url = args[1]
@@ -410,11 +401,7 @@ async function msgHandler (client, message) {
                         client.sendText(from, 'Ora Ora Ora Ora')
                     break
 		case '!help':
-<<<<<<< HEAD
                         client.sendText(from, `Hi *${pushname}*\n\nPerintah\n\n!sticker \nMengubah gambar ke stiker\n\n!neko\nMengirim gambar kucing acak\n\n!Pokemon Mengirim gambar pokemon acak \n \n!wallpaper \nMengirim wallpaper anime acak (beta)\n\n!Seasonal anime \nMenampilkan daftar anime musiman\n\n!info \nMenampilkan syarat dan ketentuan\n\n!quote\nMengirim quotedd\n\n!waifu\nMengirim gambar anime \n\n!linkGrup\nMengambil tautan undangan grup, [ bot admin ]\n\n!revLinkGrup\nMencabut tautan undangan saat ini, [ bot admin ]\n\n!join https://chat.whatsapp.com/blablabla\nUntuk menambahkan bot ke grup anda\n\n!lirik aku-bukan-boneka\nMenampilkan lirik lagu aku bukan boneka\n\n!ytmp3 https://youtu.be/6l5V3BWDcMw\nMendownload mp3 dari YouTube\n\n[ Owner Only ]\n\n!add 628xxxx\nUntuk menambahkan anggota grup\n\n!kick 628xxx\nUntuk mengeluarkan member grup\n\n!promote 628xxx\nMenaikkan pangkat member menjadi admin\n\n!demote 628xxx\nMenurunkan pangkat admin menjadi member`)
-=======
-                        client.sendText(from, `Hi *${pushname}*\n\nPerintah\n\n!sticker \nMengubah gambar ke stiker\n\n!neko\nMengirim gambar kucing acak\n\n!Pokemon Mengirim gambar pokemon acak \n \n!wallpaper \nMengirim wallpaper anime acak (beta)\n\n!Seasonal anime \nMenampilkan daftar anime musiman\n\n!info \nMenampilkan syarat dan ketentuan\n\n!quote\nMengirim quotedd\n\n!waifu\nMengirim gambar anime \n\n!covid country\nInfo covid19\n\n!linkGrup\nMengambil tautan undangan grup, [ bot admin ]\n\n!revLinkGrup\nMencabut tautan undangan saat ini\n\n!join https://chat.whatsapp.com/blablabla\nUntuk menambahkan bot ke grup anda\n\n[ Owner Only ]\n\n!add 628xxxx\nUntuk menambahkan member grup\n\n!kick 628xxx\nUntuk mengeluarkan member grup\n\n!promote 628xxx\nMenaikkan pangkat member menjadi admin\n\n!demote 628xxx\nMenurunkan pangkat admin menjadi member`)
->>>>>>> 009191a4a173c06fda23a98e2b407db4129134b7
                     break
 		case '!Seasonal anime':
                         client.sendText(from, 'Summer 2020 \n Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season \n Yahari Ore no Seishun Love Comedy wa Machigatteiru. Kan \n The God of High School \n Sword Art Online: Alicization - War of Underworld 2nd Season \n Enen no Shouboutai: Ni no Shou \n Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e \n Kanojo, Okarishimasu \n Deca-Dence \n Uzaki-chan wa Asobitai! \n Monster Musume no Oishasan')
