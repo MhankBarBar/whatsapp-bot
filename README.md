@@ -54,9 +54,6 @@ Mengirim quotedd
 !waifu
 Mengirim gambar anime 
 
-!covid country
-Info covid19
-
 !linkGrup
 Mengambil tautan undangan grup, [ bot admin ]
 
@@ -65,6 +62,12 @@ Mencabut tautan undangan saat ini, [ bot admin ]
 
 !join https://chat.whatsapp.com/blablabla
 Untuk menambahkan bot ke grup anda
+
+!lirik aku-bukan-boneka
+Menampilkan lirik lagu aku bukan boneka
+
+!ytmp3 https://youtu.be/6l5V3BWDcMw
+Mendownload mp3 dari YouTube
 
 [ Owner Only ]
 
@@ -92,9 +95,9 @@ Your texts and your whatsapp username will be stored on our servers as long as t
 
 ### Troubleshooting
 Make sure all the necessary dependencies are installed.
-https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md
+[`Troubleshooting`](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md)
 
 ## Special Thanks
 For Basic Implementation:
-1. [Open-Wa](https://github.com/open-wa/wa-automate-nodejs)
-2. [imageToSticker](https://github.com/YogaSakti/imageToSticker)
+1. [`Open-Wa`](https://github.com/open-wa/wa-automate-nodejs)
+2. [`imageToSticker`](https://github.com/YogaSakti/imageToSticker)
