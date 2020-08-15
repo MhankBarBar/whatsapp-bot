@@ -101,3 +101,6 @@ Make sure all the necessary dependencies are installed.
 For Basic Implementation:
 1. [`Open-Wa`](https://github.com/open-wa/wa-automate-nodejs)
 2. [`imageToSticker`](https://github.com/YogaSakti/imageToSticker)
+
+# For support
+[`!please donate:)`](https://saweria.co/donate/mhankbarbar)
