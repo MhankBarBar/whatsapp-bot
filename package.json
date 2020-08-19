@@ -19,6 +19,7 @@
     "nana-api": "^1.1.2",
     "node-fetch": "^2.6.0",
     "node-gtts": "^2.0.2",
+    "video-url-link": "^0.1.4",
     "wa-decrypt": "^1.0.4"
   }
 }

@@ -1,0 +1,15 @@
+[0817/003310.504:ERROR:file_io_win.cc(161)] CreateFile C:\Users\bintang\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-sIzAgg\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0817/003310.514:ERROR:file_io_win.cc(170)] CreateFile C:\Users\bintang\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-sIzAgg\Crashpad\reports\d95ed952-a30d-4819-8bea-df987069c883.dmp: The system cannot find the path specified. (0x3)
+[0817/003310.515:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[0817/014219.363:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0818/151815.449:ERROR:file_io_win.cc(161)] CreateFile C:\Users\bintang\AppData\Local\Temp\2\puppeteer_dev_chrome_profile-7oD6YW\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0818/151815.481:ERROR:file_io_win.cc(170)] CreateFile C:\Users\bintang\AppData\Local\Temp\2\puppeteer_dev_chrome_profile-7oD6YW\Crashpad\reports\627607f9-0275-4a1b-b02b-397b8be84cce.dmp: The system cannot find the path specified. (0x3)
+[0818/151815.481:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[0818/205557.453:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0818/205557.457:ERROR:file_io_win.cc(161)] CreateFile C:\Users\bintang\AppData\Local\Temp\2\puppeteer_dev_chrome_profile-dezyHf\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0818/205557.457:ERROR:file_io_win.cc(170)] CreateFile C:\Users\bintang\AppData\Local\Temp\2\puppeteer_dev_chrome_profile-dezyHf\Crashpad\reports\a57a0fbe-3009-4c62-be96-0f53d25ce1b3.dmp: The system cannot find the path specified. (0x3)
+[0818/205557.457:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[0818/231436.480:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0818/231436.484:ERROR:file_io_win.cc(161)] CreateFile C:\Users\bintang\AppData\Local\Temp\2\puppeteer_dev_chrome_profile-EEi4f1\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0818/231436.484:ERROR:file_io_win.cc(170)] CreateFile C:\Users\bintang\AppData\Local\Temp\2\puppeteer_dev_chrome_profile-EEi4f1\Crashpad\reports\82a8f743-c0d1-4685-bcb4-fd35f7e00cdd.dmp: The system cannot find the path specified. (0x3)
+[0818/231436.484:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
