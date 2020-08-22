@@ -37,7 +37,8 @@ Mengubah gambar ke stiker
 !neko
 Mengirim gambar kucing acak
 
-!Pokemon Mengirim gambar pokemon acak 
+!Pokemon
+Mengirim gambar pokemon acak 
  
 !wallpaper 
 Mengirim wallpaper anime acak (beta)
@@ -74,14 +75,17 @@ Mendownload mp3 dari YouTube
 !add 628xxxx
 Untuk menambahkan member grup
 
-!kick 628xxx
+!kick @tag
 Untuk mengeluarkan member grup
 
-!promote 628xxx
+!promote @tag
 Menaikkan pangkat member menjadi admin
 
-!demote 628xxx
+!demote @tag
 Menurunkan pangkat admin menjadi member
+
+!setPic
+Mengubah icon grup, kirim foto dengan caption !setPic
 ```
 
 ## Terms & Condition
