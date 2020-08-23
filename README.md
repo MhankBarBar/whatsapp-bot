@@ -25,7 +25,7 @@ Run the Whatsapp bot
 > npm start
 ```
 
-# Menu
+# Commands
 ```
 Hi Name
 
@@ -69,7 +69,10 @@ Menampilkan lirik lagu aku bukan boneka
 
 !ytmp3 https://youtu.be/6l5V3BWDcMw
 Mendownload mp3 dari YouTube
-
+```
+### Owner Commands
+( Owner group only!)
+```
 [ Owner Only ]
 
 !add 628xxxx
