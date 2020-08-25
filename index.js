@@ -3,6 +3,7 @@ const fs = require('fs-extra')
 const moment = require('moment')
 const fetch = require('node-fetch')
 const axios = require('axios')
+const get = require('got')
 const {artinama,
     quotes,
     weton,
@@ -12,21 +13,19 @@ const {artinama,
     liriklagu,
     quotemaker,
     yt,
-    ytmp3,
     gd,
     jodoh,
     hilih,
     weather,
 } = require('./lib/functions')
 const quotedd = require('./lib/quote')
-const insta = require('./lib/insta')
 const videoUrlLink = require('video-url-link')
-const kopit = require('./korona')
+const tiktod = require('./tiktod')
 const fbvid = require('fbvideos');
 
 const serverOption = {
     headless: true,
-    qrRefreshS: 20,
+    qrRefreshS: 60,
     qrTimeout: 0,
     authTimeout: 0,
     autoRefresh: true,
@@ -34,7 +33,12 @@ const serverOption = {
     cacheEnabled:false,
     chromiumArgs: [
       '--no-sandbox',
-      '--disable-setuid-sandbox'
+      '--disable-setuid-sandbox',
+      '--aggressive-cache-discard',
+      '--disable-cache',
+      '--disable-application-cache',
+      '--disable-offline-load-stale-cache',
+      '--disk-cache-size=0'
     ]
 }
 
@@ -61,10 +65,13 @@ create('Imperial', serverOption)
             client.onMessage((message) => {
                 msgHandler(client, message)
             })
+	    client.onIncomingCall(call => {
+			console.log(call)
+			client.contactBlock(call.peerJid)
+		})
         })
 }
 
-freedomurl = "https://i.ibb.co/6J9ST0d/IMG-20200731-WA0791.jpg"
 
 async function msgHandler (client, message) {
     try {
@@ -74,7 +81,50 @@ async function msgHandler (client, message) {
         const { name } = chat
 	const pushnames = sender.pushname || chat.name || sender.verifiedName || '';	
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
-        const commands = ['!sticker', '!stiker', '!hello','!info','!covid','!join','!lirik','!quotemaker','!help','!owner','!meme','!setPic','!add','!kick','!leave','!promote','!demote','!admin','!linkGrup','!revLinkGrup','!Seasonal anime','!neko','!wallpaper','Heave ho','Heave ho!','!quote','!quotes','!Quote','!weather','#Tod','!Pokemon','!waifu','!Waifu','!fb','!ytmp3','!ig','!gifSticker','!gifStiker']
+        const commands = ['!sticker',
+	'!stiker',
+	'!donate',
+	'!donasi',
+	'!dujin',
+	'!hello',
+	'!info',
+	'!tiktod',
+	'!F',
+	'!join',
+	'!lirik',
+	'!quotemaker',
+	'!help',
+	'!owner',
+	'!meme',
+	'!setPic',
+	'!add',
+	'!kick',
+	'!leave',
+	'!promote',
+	'!demote',
+	'!admin',
+	'!linkGrup',
+	'!revLinkGrup',
+	'!getPic',
+	'!neko',
+	'!wallpaper',
+	'Heave ho',
+	'Heave ho!',
+	'!quote',
+	'!quotes',
+	'!Quote',
+	'!weather',
+	'#Tod',
+	'!Pokemon',
+	'!waifu',
+	'!Waifu',
+	'!fb',
+	'!ytmp3',
+	'!ig',
+	'!gifSticker',
+	'!setName',
+	'!setDesc',
+	'!gifStiker']
         const cmds = commands.map(x => x + '\\b').join('|')
         const cmd = type === 'chat' ? body.match(new RegExp(cmds, 'gi')) : type === 'image' && caption ? caption.match(new RegExp(cmds, 'gi')) : ''
 
@@ -103,9 +153,14 @@ async function msgHandler (client, message) {
                             client.sendText(from, 'Url is invalid')
                         }
                     } else {
-                        client.reply(from, `Dasar ${pushname} bodoh!, yang mau dijadiin stiker apa? lu cuma send teks *!stiker*. kalo mau bikin stiker send foto dengan caption *!stiker*.`, message)
+						if(isGroupMsg) {
+							client.sendTextWithMentions(from, `Dasar @${message.author} bodoh!, yang mau dijadiin stiker apa? lu cuma send teks *!stiker*. kalo mau bikin stiker send foto dengan caption *!stiker*.`)
+						} else {
+							client.reply(from, 'Dasar bodoh!, yang mau di jadiin stiker apa? Lu cuma send teks *!stiker*. kalo mau bikin stiker send foto dengan caption *!stiker*', message)
+						}
+						
                     }
-		    break
+		    	break
 		/*case '!gifSticker':
 		case '!gifStiker':
 			    if (args.length == 1){
@@ -147,62 +202,127 @@ async function msgHandler (client, message) {
 					    	const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
 					    	await client.setGroupIcon(from, imageBase64)
 					    }else{
-						 client.reply(from, 'Fitur ini hanya bisa digunakan oleh admin[owner]', message)
+							client.reply(from, 'Lu siapa ajg? fitur ini cuma buat owner grup', message)
 					    }
 				    }
 			    } else {
 				    client.reply(from, 'Fitur ini hanya bisa di gunakan dalam grup', message)
 			    }
 		    break
-                case '!hello':
-                        client.reply(from, `Hello *${pushname}*, How can I help?`, message)
-                    break
-		case '#tod':
-			client.sendImageAsStickerGif(from, 'https://i.imgur.com/31zUM5g.gif')
-			client.sendRawWebpAsSticker(from, 'https://i.giphy.com/media/LMt9638dO8dftAjtco/200.webp')
-			client.sendStickerfromUrl(from, 'https://media.tenor.com/images/62c4b269d97c2412c4f364945f62afae/tenor.gif', {method: 'get'})			
-                    break
-		/*case '!covid':
-			const result = await kopit()
-			client.sendText(from, kopit())
-		    break*/
-		case '!ytmp3':
-			if (args.length >=2){
-                        	const url = args[1]
-                        	const result = await ytmp3(url)
-				console.log(result)
-                        	client.sendFileFromUrl(from, result , 'audio.mp3')
-				//client.sendPtt(from, result, 'audio.mp3')
-			}else{
-				client.reply(from, 'usage:\n\n!ytmp3 https://youtu.be/6l5V3BWDcMw', message)
-}
-                    break
-		case '!ig':
-			await videoUrlLink.instagram.getInfo(args, async (error, info) => {
-				if(error){
-					client.reply(from, 'Keknya ada yang salah, coba lagi nanti', message)
-					console.log(error)
+		case '!setDesk':
+			if(isGroupMsg) {
+				var wkk = `${from.split('-')[0]}@c.us`
+				if(message.author == wkk || message.author == '6285892766102@c.us') {
+					try {
+						const desk = body.slice(9)
+						await client.setGroupDescription(from, `${desk}`)
+					} catch {
+						client.reply(from, 'Terjadi kesalahan, tidak dapat mengubah deskripsi grup', message)
+					}
 				}else{
-					const url = info.list[0].video ? info.list[0].video : info.list[0].image;
-					await client.sendFileFromUrl(from, url)
+					client.reply(from, 'Lu siapa ajg? fitur ini cuma buat owner grup', message)
 				}
-			})
+			}else{
+				client.reply(from, 'Fitur ini hanya bisa di gunakan dalam grup', message)
+			}
 		    break
+    	case '!hello':
+                client.reply(from, `Hello *${pushname}*, How can I help?`, message)
+			break
+		case '!donasi':
+		case '!donate':
+				client.sendLinkWithAutoPreview(from,'https://saweria.co/donate/mhankbarbar','Ya halo om, mau donate?\n\nKalo mau donate nih langsung ae ke:\nOVO : 085892766102\nPulsa : 085892766102\nSaweria : https://saweria.co/donate/mhankbarbar')
+			break
+		case '#tod':
+			if (args.length == 2) {
+				const url = args[1]
+				const reUrl = url.match(new RegExp(/https?:\/\/media.giphy.com\/media/, 'gi'))
+				if(reUrl) {
+					await client.sendGiphyAsSticker(from, url)
+				} else {
+					client.reply(from, 'Untuk saat ini stiker gif hanya bisa menggunakan link giphy saja', message)
+				}
+			}
+            break
+		case '!ytmp3':
+			if (args.length >= 2){
+				const url = args[1]
+				var param = body.substring(body.indexOf(' '), body.length)
+				const resp = await get.get('https://yutmp3.herokuapp.com/?url='+ param).json()
+				console.log(resp)
+				if (!resp.file) {
+					client.reply(from, 'Videonya ga valid!', message)
+				} else {
+					client.reply(from, `Title : ${resp.title}`, message)
+					await client.sendFileFromUrl(from, `https://yutmp3.herokuapp.com${resp.file}`, `${resp.title}.mp3`)
+				}
+			}
+			break
+		case '!tiktod':
+			if(args.length !== 2) return client.reply(from, 'Maaf, link yang kamu kirim tidak valid', message)
+            const arl = args[1]
+            if (!arl.match(isUrl) && !arl.includes('tiktok.com')) return client.reply(from, 'Maaf, link yang kamu kirim tidak valid', message)
+            await client.sendText(from, '*Scraping Metadata...*')
+            await tiktod(arl)
+                .then((videoMeta) => {
+                    const filename = videoMeta.authorMeta.name + '.mp4'
+                    const caps = `*Metadata:*\nUsername: ${videoMeta.authorMeta.name} \nMusic: ${videoMeta.musicMeta.musicName} \nView: ${videoMeta.playCount.toLocaleString()} \nLike: ${videoMeta.diggCount.toLocaleString()} \nComment: ${videoMeta.commentCount.toLocaleString()} \nShare: ${videoMeta.shareCount.toLocaleString()} \nCaption: ${videoMeta.text.trim() ? videoMeta.text : '-'}.`
+                    client.sendFileFromUrl(from, videoMeta.url, filename, videoMeta.NoWaterMark ? caps : `⚠ Video tanpa watermark tidak tersedia. \n\n${caps}`, '', { headers: { 'User-Agent': 'okhttp/4.5.0' } })
+                        .catch(err => console.log('Caught exception: ', err))
+                }).catch(() => {
+                    client.reply(from, 'Gagal mengambil metadata, link yang kamu kirim tidak valid', id)
+                })
+			break
+		case '!ig':
+			if (args.length >= 2) {
+				var param = body.substring(body.indexOf(' '), body.length)
+				const resp = await get.get('https://villahollanda.com/api.php?url='+ param).json()
+				console.log(resp)
+				if (resp.mediatype == 'photo') {
+					var ext = '.png'
+				}else{
+					var ext = '.mp4'
+				}
+				client.sendFileFromUrl(from, resp.descriptionc, `igeh${ext}`)
+			}
+		   break
+		case '!dujin':
+			if (args.length >= 2) {
+				var nuklir = args[1]
+				var dujin = 'https://kegma.herokuapp.com'
+				const resp = await get.get('https://kegma.herokuapp.com/doujinshi/'+ nuklir).json()
+				console.log(resp)
+				//const wk = resp.content.split('unduh/')[1].replace(/%20/g,' ').replace(/%C2%BB/g,'�').replace(/%3A/g,':')
+				if (resp.status) {
+					client.reply(from, `Result : ${dujin}${resp.content}`, message)
+					//client.sendFileFromUrl(from, `${dujin}${resp.content}`, `${nuklir}.pdf`)
+					//client.senFile(from, `C:\\Users\\administrator\\NApi\\pdf\\${wk}`, `${wk}`)
+				}else{
+					client.reply(from, 'Kode nuklir salah om', message)
+				}
+			}
+			break
+		case '!F':
+			if(isGroupMsg){
+				var asw = client.getGroupAdmins(from)
+				console.log(asw)
+			}
+			break
 		case '!lirik':
-			if(args.length == 2){
-                        	const lagu = args[1]
+			if(args.length >= 2){
+                        	const lagu = body.slice(7)
                         	const result = await liriklagu(lagu)
                         	client.sendText(from, result)
 			}else{
-				client.reply(from, 'usage:\n\n!lirik aku-bukan-boneka\n"-" = spasi', message)
-}
+				client.reply(from, 'usage:\n\n!lirik aku bukan boneka', message)
+			}
                     break
 		case '!weather':
 			if(args.length >= 2){
 				const kota = args[1]
                         	const result = await weather(kota)
                         	client.sendText(from, result)
-}
+			}
                     break
 		case '!quotemaker':
 			arg = body.trim().split('|')
@@ -213,27 +333,58 @@ async function msgHandler (client, message) {
                         	const theme = arg[3]
                         	const result = await quotemaker(quotes, author, theme)
                         	client.sendFile(from, result, 'quotesmaker.jpg','neh...')
-}
+			}
                     break
 		case '!linkGrup':
 			if(isGroupMsg){
-				const inviteLink = await client.getGroupInviteLink(chat.id);
-				client.sendLinkWithAutoPreview(from, inviteLink, `\nLink group *${name}*`)
-}
+				try {
+					const inviteLink = await client.getGroupInviteLink(chat.id);
+					client.sendLinkWithAutoPreview(from, inviteLink, `\nLink group *${name}*`)
+				} catch {
+					client.reply(from, 'Sepertinya bot belum menjadi admin', message)
+				}
+			}else{
+				client.reply(from, 'Perintah ini hanya bisa di gunakan dalam grup', message)
+			}
 		    break
 		case '!owner':
-			var owner = from.split('-')[0]
-			client.sendText(from, `[${owner}]`)
-		    break
+			if(isGroupMsg){
+				var owner = from.split('-')[0]
+				client.sendText(from, `[${owner}]`)
+			}else{
+				client.reply(from, 'Perintah ini hanya bisa di gunakan dalam grup', message)
+			}
+			break
+		case '!getPic':
+			if(!isGroupMsg){
+				try{
+					var jnck = await client.getProfilePicFromServer(from)
+					client.sendFileFromUrl(from, jnck, `awok.jpg`)
+				} catch {
+					client.reply(from, 'Pp lu gada anying, di private atau gimana?', message)
+				}
+			}else{
+				try{
+					var jnck = await client.getProfilePicFromServer(from)
+					client.sendFileFromUrl(from, jnck, 'gblk.jpg')
+				} catch {
+					client.reply(from, 'Terjadi kesalahan, tidak dapat mengirimkan foto profile group', message)
+				}
+			}
+			break
 		case '!add':
 			if(isGroupMsg){
 				if(args.length >=2){
 					var wkwk = `${from.split('-')[0]}@c.us`
 					if(message.author == wkwk || message.author == '6285892766102@c.us'){
-						org = args[1]
-						client.addParticipant(from,`${org}@c.us`)
+						try {
+							org = args[1]
+							client.addParticipant(from,`${org}@c.us`)
+						} catch {
+							client.reply(from, `Tidak dapat menambahkan ${org} mungkin karena di private`, message)
+						}
 					}else{
-						client.reply(from, 'Fitur ini hanya bisa di pakai oleh admin[owner]', message)
+						client.reply(from, 'Lu siapa ajg? fitur ini cuma buat owner grup', message)
 					}
 				}
 			}else{
@@ -248,7 +399,7 @@ async function msgHandler (client, message) {
 						wong = body.split('@')[1] || args[1]
 						client.removeParticipant(from,`${wong}@c.us`)
 					}else{
-						client.reply(from, 'Fitur ini hanya bisa di pakai oleh admin[owner]', message)
+						client.reply(from, 'Lu siapa ajg? fitur ini cuma buat owner grup', message)
 					}
 				}
 			}else{
@@ -261,6 +412,26 @@ async function msgHandler (client, message) {
 				client.leaveGroup(from)
 }
 		    break*/
+		case '!setName':
+			if(isGroupMsg){
+				if(args.length >= 2) {
+					var wkk = `${from.split('-')[0]}@c.us`
+					if(message.author == wkk || message.author == '6285892766102@c.us') {
+						try {
+							const subject = body.slice(9)
+							console.log(subject)
+							client.setGroupTitle(from, subject)
+						} catch {
+							client.reply(from, 'Terjadi Kesalahan, tidak dapat mengubah title group!', message)
+						}
+					} else {
+						client.reply(from, 'Lu siapa ajg? fitur ini cuma buat owner grup', message)
+					}
+				}
+			} else {
+				client.reply(from, 'Fitur ini hanya bisa gunakan dalam grup', message)
+			}
+		    break
 		case '!promote':
 			if(isGroupMsg){
 				if(args.length >=2){
@@ -269,7 +440,7 @@ async function msgHandler (client, message) {
 						prom = body.split('@')[1] || args[1]
 						client.promoteParticipant(from,`${prom}@c.us`)
 					}else{
-						client.reply(from, 'Fitur ini hanya bisa di pakai oleh admin[owner]', message)
+						client.reply(from, 'Lu siapa ajg? fitur ini cuma buat owner grup', message)
 					}
 				}
 			}else{
@@ -284,7 +455,7 @@ async function msgHandler (client, message) {
 						demo = body.split('@')[1] || args[1]
 						client.demoteParticipant(from,`${demo}@c.us`)
 					}else{
-						client.reply(from, 'Fitur ini hanya bisa di pakai oleh admin[owner]', message)
+						client.reply(from, 'Lu siapa ajg? fitur ini cuma buat owner grup', message)
 					}
 				}
 			}else{
@@ -293,32 +464,39 @@ async function msgHandler (client, message) {
 		    break
 		case '!revLinkGrup':
 			if(isGroupMsg){
-				try {
-					await client.revokeGroupInviteLink(chat.id);
-					//client.sendText(from, 'Tautan undangan berhasil di tarik')
-				} catch (e) {
-					client.reply(from, 'Sepertinya bot belum menjadi admin', message)
+				var wkk = `${from.split('-')[0]}@c.us`
+				if(message.author == wkk) {
+					try {
+						await client.revokeGroupInviteLink(chat.id);
+						//client.sendText(from, 'Tautan undangan berhasil di tarik')
+					} catch (e) {
+						client.reply(from, 'Sepertinya bot belum menjadi admin', message)
+					}
+				}else{
+					client.reply(from, 'Lu siapa ajg? fitur ini cuma buat owner grup', message)
 				}
-}
+			}else{
+				client.reply(from, 'Perintah ini hanya bisa di gunakan dalam grup', message)
+			}
 		    break
 		case '!join':
-			if (args.length >=2) {
+			client.reply(from, 'Izin dulu sama wa.me/6285892766102 kalo mau invite bot di grup mu', message)
+			/*if (args.length >=2) {
 				const link = args[1]
 				const invite = link.replace('https://chat.whatsapp.com/', '')
 				if (link.match(/(https:\/\/chat.whatsapp.com)/gi)) {
-					try {
-						await client.inviteInfo(invite);
+					const check = await client.inviteInfo(invite);
+					if (check) {
 						await client.joinGroupViaLink(invite)
 						client.reply(from, 'Otw join gan', message)
-					} catch (e) {
+					} else {
 						client.reply(from, 'Sepertinya link grup bermasalah', message)
 					}
 				} else {
 					client.reply(from, 'Ini link????', message)
 				}
-}
+			}*/
 		    break
-                    
                 case '!Waifu':
                 case '!waifu': 
                         q8 = q2 = Math.floor(Math.random() * 98) + 10;
@@ -339,18 +517,18 @@ async function msgHandler (client, message) {
                     break
                 case '!wallpaper' :
                        q4 = Math.floor(Math.random() * 800) + 100;
-                       client.sendFileFromUrl(from, 'https://wallpaperaccess.com/download/anime-'+q4,'Anime.png','Here is your wallpaper')
+                       client.sendFileFromUrl(from, 'https://wallpaperaccess.com/download/anime-'+q4,'Wallpaper.png','Here is your wallpaper')
                     break
                 case '!quote' :
-		case '!quotes' :
-		case '!Quote' :
-			client.sendText(from, quotedd())
-		    break
-		case '!meme':
-			const response = await axios.get('https://meme-api.herokuapp.com/gimme/wholesomeanimemes');
-			const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
-			await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
-		    break
+				case '!quotes' :
+				case '!Quote' :
+					client.sendText(from, quotedd())
+				    break
+				case '!meme':
+					const response = await axios.get('https://meme-api.herokuapp.com/gimme/wholesomeanimemes');
+					const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
+					await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
+				    break
                 case '!fb':
                     if (args.length >=2) {
                         const urlvid = args[1]
@@ -368,13 +546,35 @@ async function msgHandler (client, message) {
                     }
                     break
 		case '!help':
-                        client.sendText(from, `Hi *${pushname}*\n\nPerintah\n\n!sticker \nMengubah gambar ke stiker\n\n!neko\nMengirim gambar kucing acak\n\n!Pokemon\nMengirim gambar pokemon acak \n \n!wallpaper \nMengirim wallpaper anime acak (beta)\n\n!Seasonal anime \nMenampilkan daftar anime musiman\n\n!info \nMenampilkan syarat dan ketentuan\n\n!quote\nMengirim quotedd\n\n!waifu\nMengirim gambar anime \n\n!linkGrup\nMengambil tautan undangan grup, [ bot admin ]\n\n!revLinkGrup\nMencabut tautan undangan saat ini, [ bot admin ]\n\n!join https://chat.whatsapp.com/blablabla\nUntuk menambahkan bot ke grup anda\n\n!lirik aku-bukan-boneka\nMenampilkan lirik lagu aku bukan boneka\n\n!ytmp3 https://youtu.be/6l5V3BWDcMw\nMendownload mp3 dari YouTube\n\n[ Owner Only ]\n\n!add 628xxxx\nUntuk menambahkan member grup\n\n!kick @tag\nUntuk mengeluarkan member grup\n\n!promote @tag\nMenaikkan pangkat member menjadi admin\n\n!demote @tag\nMenurunkan pangkat admin menjadi member\n\n!setPic\nMengubah icon grup, kirim foto dengan caption !setPic`)
-                    break
-		case '!Seasonal anime':
-                        client.sendText(from, 'Summer 2020 \n Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season \n Yahari Ore no Seishun Love Comedy wa Machigatteiru. Kan \n The God of High School \n Sword Art Online: Alicization - War of Underworld 2nd Season \n Enen no Shouboutai: Ni no Shou \n Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e \n Kanojo, Okarishimasu \n Deca-Dence \n Uzaki-chan wa Asobitai! \n Monster Musume no Oishasan')
-		    break
-                case '!Thank you':
-                        client.sendText(from, 'Whatever... *smiles*') 
+						client.sendText(from, `╔═══════════════
+╠══✪〘 Commands 〙✪══
+╠➥!sticker
+╠➥!neko
+╠➥!Pokemon
+╠➥!wallpaper
+╠➥!info 
+╠➥!quotes
+╠➥!waifu
+╠➥!linkGrup
+╠➥!join
+╠➥!getPic
+╠➥!lirik <optional>
+║
+╠✪〘 Downloader 〙✪═
+╠➥!ytmp3 <link>
+╠➥!ig <link>
+║
+╠✪〘 For owner group 〙✪═
+╠➥!add 628xxxx
+╠➥!kick <@tagmember>
+╠➥!promote <@tagmember>
+╠➥!demote <@tagadmin>
+╠➥!setPic send image with caption
+╠➥!revLinkGrup
+║
+╠✪〘 Donate :) 〙✪════
+╠➥!donasi
+╚═〘 Me Bot 〙`)
                     break
                 case '!info':
                         client.sendText(from, 'Ini adalah program sumber terbuka yang ditulis dalam Javascript. \n \nDengan menggunakan bot, Anda menyetujui Syarat dan Ketentuan kami \n \nSyarat dan ketentuan \n \nTeks dan nama pengguna whatsapp Anda akan disimpan di server kami selama bot aktif, data Anda akan dihapus ketika  bot menjadi offline.  Kami TIDAK menyimpan gambar, video, file audio dan dokumen yang Anda kirim.  Kami tidak akan pernah meminta Anda untuk mendaftar atau meminta kata sandi, OTP, atau PIN Anda.  \n \n Terima kasih, Selamat bersenang-senang!')    

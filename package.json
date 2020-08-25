@@ -10,16 +10,20 @@
   "author": "Somnath Das and Alen Yohannan",
   "license": "OpenSource",
   "dependencies": {
-    "@open-wa/wa-automate": "^1.9.103",
+    "@open-wa/wa-automate": "^2.0.3",
     "axios": "^0.19.2",
     "fbvideos": "^1.0.2",
     "fs-extra": "^9.0.1",
+    "got": "^11.5.2",
     "mal-api": "^2.0.0",
     "moment": "^2.27.0",
     "nana-api": "^1.1.2",
     "node-fetch": "^2.6.0",
     "node-gtts": "^2.0.2",
+    "tiktok-scraper": "^1.3.0",
     "video-url-link": "^0.1.4",
-    "wa-decrypt": "^1.0.4"
+    "wa-decrypt": "^1.0.4",
+    "youtube-mp3-downloader": "^0.7.3",
+    "ytdl-core": "^3.2.2"
   }
 }
