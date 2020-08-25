@@ -26,70 +26,7 @@ Run the Whatsapp bot
 ```
 
 # Commands
-```
-Hi Name
-
-Perintah
-
-!sticker 
-Mengubah gambar ke stiker
-
-!neko
-Mengirim gambar kucing acak
-
-!Pokemon
-Mengirim gambar pokemon acak 
- 
-!wallpaper 
-Mengirim wallpaper anime acak (beta)
-
-!Seasonal anime 
-Menampilkan daftar anime musiman
-
-!info 
-Menampilkan syarat dan ketentuan
-
-!quote
-Mengirim quotedd
-
-!waifu
-Mengirim gambar anime 
-
-!linkGrup
-Mengambil tautan undangan grup, [ bot admin ]
-
-!revLinkGrup
-Mencabut tautan undangan saat ini, [ bot admin ]
-
-!join https://chat.whatsapp.com/blablabla
-Untuk menambahkan bot ke grup anda
-
-!lirik aku-bukan-boneka
-Menampilkan lirik lagu aku bukan boneka
-
-!ytmp3 https://youtu.be/6l5V3BWDcMw
-Mendownload mp3 dari YouTube
-```
-### Owner Commands
-( Owner group only!)
-```
-[ Owner Only ]
-
-!add 628xxxx
-Untuk menambahkan member grup
-
-!kick @tag
-Untuk mengeluarkan member grup
-
-!promote @tag
-Menaikkan pangkat member menjadi admin
-
-!demote @tag
-Menurunkan pangkat admin menjadi member
-
-!setPic
-Mengubah icon grup, kirim foto dengan caption !setPic
-```
+<img src="https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-08-25-22-26-23-72.jpg"/>
 
 ## Terms & Condition
 By using the bot you agreeing to our Terms and Conditions 
