@@ -86,7 +86,6 @@ async function msgHandler (client, message) {
 	'!donate',
 	'!donasi',
 	'!dujin',
-	'!hello',
 	'!info',
 	'!tiktod',
 	'!F',
@@ -108,8 +107,6 @@ async function msgHandler (client, message) {
 	'!getPic',
 	'!neko',
 	'!wallpaper',
-	'Heave ho',
-	'Heave ho!',
 	'!quote',
 	'!quotes',
 	'!Quote',
@@ -225,14 +222,11 @@ async function msgHandler (client, message) {
 			}else{
 				client.reply(from, 'Fitur ini hanya bisa di gunakan dalam grup', message)
 			}
-		    break
-    	case '!hello':
-                client.reply(from, `Hello *${pushname}*, How can I help?`, message)
-			break
+                    break
 		case '!donasi':
 		case '!donate':
 				client.sendLinkWithAutoPreview(from,'https://saweria.co/donate/mhankbarbar','Ya halo om, mau donate?\n\nKalo mau donate nih langsung ae ke:\nOVO : 085892766102\nPulsa : 085892766102\nSaweria : https://saweria.co/donate/mhankbarbar')
-			break
+		    break
 		case '#tod':
 			if (args.length == 2) {
 				const url = args[1]
@@ -243,7 +237,7 @@ async function msgHandler (client, message) {
 					client.reply(from, 'Untuk saat ini stiker gif hanya bisa menggunakan link giphy saja', message)
 				}
 			}
-            break
+                    break
 		case '!ytmp3':
 			if (args.length >= 2){
 				const url = args[1]
@@ -257,7 +251,7 @@ async function msgHandler (client, message) {
 					await client.sendFileFromUrl(from, `https://yutmp3.herokuapp.com${resp.file}`, `${resp.title}.mp3`)
 				}
 			}
-			break
+		    break
 		case '!tiktod':
 			if(args.length !== 2) return client.reply(from, 'Maaf, link yang kamu kirim tidak valid', message)
             const arl = args[1]
@@ -272,7 +266,7 @@ async function msgHandler (client, message) {
                 }).catch(() => {
                     client.reply(from, 'Gagal mengambil metadata, link yang kamu kirim tidak valid', id)
                 })
-			break
+		    break
 		case '!ig':
 			if (args.length >= 2) {
 				var param = body.substring(body.indexOf(' '), body.length)
@@ -285,7 +279,7 @@ async function msgHandler (client, message) {
 				}
 				client.sendFileFromUrl(from, resp.descriptionc, `igeh${ext}`)
 			}
-		   break
+		    break
 		case '!dujin':
 			if (args.length >= 2) {
 				var nuklir = args[1]
@@ -301,13 +295,14 @@ async function msgHandler (client, message) {
 					client.reply(from, 'Kode nuklir salah om', message)
 				}
 			}
-			break
+			
+                    break
 		case '!F':
 			if(isGroupMsg){
 				var asw = client.getGroupAdmins(from)
 				console.log(asw)
 			}
-			break
+		    break
 		case '!lirik':
 			if(args.length >= 2){
                         	const lagu = body.slice(7)
@@ -354,7 +349,7 @@ async function msgHandler (client, message) {
 			}else{
 				client.reply(from, 'Perintah ini hanya bisa di gunakan dalam grup', message)
 			}
-			break
+		    break
 		case '!getPic':
 			if(!isGroupMsg){
 				try{
@@ -371,7 +366,7 @@ async function msgHandler (client, message) {
 					client.reply(from, 'Terjadi kesalahan, tidak dapat mengirimkan foto profile group', message)
 				}
 			}
-			break
+		    break
 		case '!add':
 			if(isGroupMsg){
 				if(args.length >=2){
@@ -502,10 +497,6 @@ async function msgHandler (client, message) {
                         q8 = q2 = Math.floor(Math.random() * 98) + 10;
                         client.sendFileFromUrl(from, 'http://randomwaifu.altervista.org/images/00'+q8+'.png', 'Waifu.png', 'Korewa daredesu ka?')
                     break
-                case 'Heave ho':
-                case 'Heave ho!':
-                        client.sendFileFromUrl(from, 'https://i.ibb.co/KjJx5ps/Whats-App-Image-2020-08-01-at-16-36-10.jpg','Soran.jpg','*Soran Soran*')
-                    break
                 case '!neko':          
                         q2 = Math.floor(Math.random() * 900) + 300;
                         q3 = Math.floor(Math.random() * 900) + 300;
@@ -546,7 +537,7 @@ async function msgHandler (client, message) {
                     }
                     break
 		case '!help':
-						client.sendText(from, `╔═══════════════
+			client.sendText(from, `╔═══════════════
 ╠══✪〘 Commands 〙✪══
 ╠➥!sticker
 ╠➥!neko
