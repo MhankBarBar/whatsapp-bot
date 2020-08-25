@@ -41,8 +41,7 @@ Your texts and your whatsapp username will be stored on our servers as long as t
 Make sure all the necessary dependencies are installed.
 [`Troubleshooting`](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md)
 
-## Special Thanks
-For Basic Implementation:
+## Special Thanks to
 1. [`Open-Wa`](https://github.com/open-wa/wa-automate-nodejs)
 2. [`imageToSticker`](https://github.com/YogaSakti/imageToSticker)
 3. [`Whatsapp-Botto-Re`](https://github.com/SomnathDas/Whatsapp-Botto-Re)
