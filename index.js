@@ -254,18 +254,18 @@ async function msgHandler (client, message) {
 		    break
 		case '!tiktod':
 			if(args.length !== 2) return client.reply(from, 'Maaf, link yang kamu kirim tidak valid', message)
-            const arl = args[1]
-            if (!arl.match(isUrl) && !arl.includes('tiktok.com')) return client.reply(from, 'Maaf, link yang kamu kirim tidak valid', message)
-            await client.sendText(from, '*Scraping Metadata...*')
-            await tiktod(arl)
-                .then((videoMeta) => {
-                    const filename = videoMeta.authorMeta.name + '.mp4'
-                    const caps = `*Metadata:*\nUsername: ${videoMeta.authorMeta.name} \nMusic: ${videoMeta.musicMeta.musicName} \nView: ${videoMeta.playCount.toLocaleString()} \nLike: ${videoMeta.diggCount.toLocaleString()} \nComment: ${videoMeta.commentCount.toLocaleString()} \nShare: ${videoMeta.shareCount.toLocaleString()} \nCaption: ${videoMeta.text.trim() ? videoMeta.text : '-'}.`
-                    client.sendFileFromUrl(from, videoMeta.url, filename, videoMeta.NoWaterMark ? caps : `⚠ Video tanpa watermark tidak tersedia. \n\n${caps}`, '', { headers: { 'User-Agent': 'okhttp/4.5.0' } })
-                        .catch(err => console.log('Caught exception: ', err))
-                }).catch(() => {
-                    client.reply(from, 'Gagal mengambil metadata, link yang kamu kirim tidak valid', id)
-                })
+                        const arl = args[1]
+                        if (!arl.match(isUrl) && !arl.includes('tiktok.com')) return client.reply(from, 'Maaf, link yang kamu kirim tidak valid', message)
+                        await client.sendText(from, '*Scraping Metadata...*')
+                        await tiktod(arl)
+                            .then((videoMeta) => {
+                                 const filename = videoMeta.authorMeta.name + '.mp4'
+                                 const caps = `*Metadata:*\nUsername: ${videoMeta.authorMeta.name} \nMusic: ${videoMeta.musicMeta.musicName} \nView: ${videoMeta.playCount.toLocaleString()} \nLike: ${videoMeta.diggCount.toLocaleString()} \nComment: ${videoMeta.commentCount.toLocaleString()} \nShare: ${videoMeta.shareCount.toLocaleString()} \nCaption: ${videoMeta.text.trim() ? videoMeta.text : '-'}.`
+                                 client.sendFileFromUrl(from, videoMeta.url, filename, videoMeta.NoWaterMark ? caps : `⚠ Video tanpa watermark tidak tersedia. \n\n${caps}`, '', { headers: { 'User-Agent': 'okhttp/4.5.0' } })
+                                     .catch(err => console.log('Caught exception: ', err))
+                            }).catch(() => {
+                                 client.reply(from, 'Gagal mengambil metadata, link yang kamu kirim tidak valid', id)
+                            })
 		    break
 		case '!ig':
 			if (args.length >= 2) {
