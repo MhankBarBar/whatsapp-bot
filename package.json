@@ -2,28 +2,28 @@
   "name": "whatsapp-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "kntl.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node kntl.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Somnath Das and Alen Yohannan",
+  "author": "Undefined",
   "license": "OpenSource",
   "dependencies": {
-    "@open-wa/wa-automate": "^2.0.3",
+    "@open-wa/wa-automate": "^2.0.7",
     "axios": "^0.19.2",
-    "fbvideos": "^1.0.2",
+    "brainly-scraper": "^1.0.1",
     "fs-extra": "^9.0.1",
     "got": "^11.5.2",
+    "image-to-base64": "^2.1.1",
     "mal-api": "^2.0.0",
     "moment": "^2.27.0",
     "nana-api": "^1.1.2",
     "node-fetch": "^2.6.0",
     "node-gtts": "^2.0.2",
+    "request": "^2.88.2",
     "tiktok-scraper": "^1.3.0",
     "video-url-link": "^0.1.4",
-    "wa-decrypt": "^1.0.4",
-    "youtube-mp3-downloader": "^0.7.3",
-    "ytdl-core": "^3.2.2"
+    "wa-decrypt": "^1.0.4"
   }
 }
