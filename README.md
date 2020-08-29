@@ -1,7 +1,7 @@
 # whatsapp-bot
 Hello fellow users, Whatsapp Bot is whatsapp automation script or more like a bot that responds to particular keywords and few other features that we are working on.
 
-This is an open-source program written in Javascript. 
+This is program written in Javascript. 
 This project require NodeJS v12.
 
 ## Clone this project
@@ -26,7 +26,7 @@ Run the Whatsapp bot
 ```
 
 # Commands
-<img src="https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-08-25-22-26-23-72.jpg"/>
+<img src="https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-08-30-02-50-39-49.jpg"/>
 
 ## Terms & Condition
 By using the bot you agreeing to our Terms and Conditions 
