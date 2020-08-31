@@ -1,10 +1,10 @@
 # whatsapp-bot
-Hello fellow users, Whatsapp Bot is whatsapp automation script or more like a bot that responds to particular keywords and few other features that we are working on.
+Halo sesama pengguna, <b>whatsapp-bot</b> adalah skrip otomatisasi whatsapp atau lebih seperti bot yang merespons kata kunci tertentu dan beberapa fitur lain yang sedang kami kerjakan.
 
-This is program written in Javascript. 
-This project require NodeJS v12.
+Ini adalah program yang ditulis dalam Javascript.
+Project ini membutuhkan NodeJS v12.
 
-## Clone this project
+## Clone project ini
 
 ```bash
 > git clone https://github.com/MhankBarBar/whatsapp-bot
@@ -19,7 +19,7 @@ you've just cloned!!
 ```
 
 ### Usage
-Run the Whatsapp bot
+Jalankan <b>whatsapp-bot</b>
 
 ```bash
 > npm start
