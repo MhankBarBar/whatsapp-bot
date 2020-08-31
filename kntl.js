@@ -406,7 +406,7 @@ Season = *${resolt.docs[0].season}*
             }
             break
         case 'lirik':
-            if (args.length <= 1) return client.reply(from, 'Kirim perintah *!lirik* judul lagu, contoh *!lirik* aku bukan boneka', message.id)
+            if (args.length == 0) return client.reply(from, 'Kirim perintah *!lirik* judul lagu, contoh *!lirik* aku bukan boneka', message.id)
             const lagu = body.slice(7)
             console.log(lagu)
             const lirik = await liriklagu(lagu)
