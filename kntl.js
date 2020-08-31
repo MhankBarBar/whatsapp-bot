@@ -32,7 +32,7 @@ const opsys = process.platform
 if (opsys === 'win32' || opsys === 'win64') {
     serverOption.executablePath = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
 } else if (opsys === 'win32' || opsys === 'win64') {
-    serverOption.executablePath = 'C:\\Program Files\\Goole\\Chrome\\Application\\Chrome.exe'
+    serverOption.executablePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
 } else if (opsys === 'linux') {
     serverOption.browserRevision = '737027'
 } else if (opsys === 'darwin') {
@@ -206,6 +206,7 @@ Season = *${resolt.docs[0].season}*
                     client.reply(from, 'Gagal mengambil metadata, link yang kamu kirim tidak valid', message.id)
                 })
             break
+        // Error !
         case 'ig':
             if (args.length >= 1) {
                 var param = body.substring(body.indexOf(' '), body.length)
@@ -469,7 +470,7 @@ Season = *${resolt.docs[0].season}*
 ║
 ╠✪〘 Downloader 〙✪═
 ╠➥!ytmp3 <link>
-╠➥!ig <link>
+╠➥!ig <link> [ error ]
 ╠➥!dujin <nuklir>
 ║
 ╠✪〘 For admin group 〙✪═
