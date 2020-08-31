@@ -1,72 +1,15 @@
-[0829/171425.967:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-Uhcrmq\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/171425.968:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-Uhcrmq\Crashpad\reports\d133946a-7153-4c91-8fcc-50bc615f10ff.dmp: The system cannot find the path specified. (0x3)
-[0829/171425.968:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/175150.895:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-sFDEpS\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/175150.896:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-sFDEpS\Crashpad\reports\7895c971-95dd-46ea-815b-1c82e9b041a8.dmp: The system cannot find the path specified. (0x3)
-[0829/175150.896:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/175251.678:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-UJPQYE\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/175251.679:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-UJPQYE\Crashpad\reports\bd0704f5-84e2-41b7-a92f-9efb455188fd.dmp: The system cannot find the path specified. (0x3)
-[0829/175251.679:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/180437.770:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/180437.774:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-RuNRUC\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/180437.774:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-RuNRUC\Crashpad\reports\c828dda0-4960-4689-94d6-d76e3f759424.dmp: The system cannot find the path specified. (0x3)
-[0829/180437.774:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/180645.368:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-NqxSR8\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/180645.368:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-NqxSR8\Crashpad\reports\4ca9faa9-22fd-47f8-ac13-61d1a9a97569.dmp: The system cannot find the path specified. (0x3)
-[0829/180645.368:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/181737.443:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-rYAnIA\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/181737.444:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-rYAnIA\Crashpad\reports\1764d630-d838-44f0-bab7-a349016b040f.dmp: The system cannot find the path specified. (0x3)
-[0829/181737.444:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/182536.779:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-QzUnUW\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/182536.780:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-QzUnUW\Crashpad\reports\d37e36b6-4248-4775-8ef8-c0a7c9e1de8b.dmp: The system cannot find the path specified. (0x3)
-[0829/182536.780:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/182723.694:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-dotNtJ\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/182723.695:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-dotNtJ\Crashpad\reports\ac184602-ce84-4034-a43a-a2e95c907003.dmp: The system cannot find the path specified. (0x3)
-[0829/182723.695:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/183118.968:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-CBBWjE\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/183118.969:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-CBBWjE\Crashpad\reports\f75ecc03-287f-49cc-8fd8-2a555576ad04.dmp: The system cannot find the path specified. (0x3)
-[0829/183118.969:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/183423.188:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-tMNfBF\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/183423.189:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-tMNfBF\Crashpad\reports\24e61858-3ebe-469e-b62e-21efaadff0ba.dmp: The system cannot find the path specified. (0x3)
-[0829/183423.189:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/184025.541:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-up8pQl\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/184025.541:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-up8pQl\Crashpad\reports\2033255b-9f75-4195-b535-402a8345f286.dmp: The system cannot find the path specified. (0x3)
-[0829/184025.541:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/184747.075:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/184747.076:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/184747.076:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/184747.076:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/184747.079:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-tNtIeL\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/184747.079:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-tNtIeL\Crashpad\reports\ba7cf6f7-e915-4673-a367-c6c4a13f5815.dmp: The system cannot find the path specified. (0x3)
-[0829/184747.079:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/185551.340:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-37s29V\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/185551.340:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-37s29V\Crashpad\reports\9ea9ffdf-b60e-494c-b5fb-3dc1770eeb37.dmp: The system cannot find the path specified. (0x3)
-[0829/185551.340:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/185605.017:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/185605.018:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/185605.018:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/185605.018:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/185605.018:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/185605.018:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/185605.021:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-ydb3CC\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/185605.021:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-ydb3CC\Crashpad\reports\e43a8b2b-a678-4499-9cd9-bee2e802fa53.dmp: The system cannot find the path specified. (0x3)
-[0829/185605.021:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/190024.302:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-qsJYQk\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/190024.302:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-qsJYQk\Crashpad\reports\fb185ae3-9a0b-4fc4-9e01-d18ef235a89c.dmp: The system cannot find the path specified. (0x3)
-[0829/190024.303:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/193625.838:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-trIHQb\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/193625.839:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-trIHQb\Crashpad\reports\97be6332-b1b0-47e4-a46f-faa8b848279e.dmp: The system cannot find the path specified. (0x3)
-[0829/193625.839:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/193852.461:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-xFWe28\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/193852.461:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-xFWe28\Crashpad\reports\b8fe2012-e364-47b3-8630-29854ced511e.dmp: The system cannot find the path specified. (0x3)
-[0829/193852.461:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/194337.710:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/194337.710:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/194337.710:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/194337.714:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-JkI7Uc\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/194337.714:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-JkI7Uc\Crashpad\reports\f3e914b2-98c3-4cdb-9a0f-55fd2461f6e2.dmp: The system cannot find the path specified. (0x3)
-[0829/194337.714:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
-[0829/201101.625:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
-[0829/201101.629:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-AsOyeF\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
-[0829/201101.629:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-AsOyeF\Crashpad\reports\d5590896-8ec8-4164-872e-3e3adbc12ac1.dmp: The system cannot find the path specified. (0x3)
-[0829/201101.629:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[0830/085840.908:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-aQeNhV\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0830/085840.909:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-aQeNhV\Crashpad\reports\0966cb38-74a2-4aef-a265-d07d332941fc.dmp: The system cannot find the path specified. (0x3)
+[0830/085840.910:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[0830/090325.248:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-Y52Ttr\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0830/090325.249:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-Y52Ttr\Crashpad\reports\9014d53f-79e4-485f-9c88-4d9857d1f71a.dmp: The system cannot find the path specified. (0x3)
+[0830/090325.249:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[0830/113853.285:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-lbpO41\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0830/113853.290:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-lbpO41\Crashpad\reports\18433f36-b8a8-47bd-bc37-dc09089aeed7.dmp: The system cannot find the path specified. (0x3)
+[0830/113853.290:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[0830/124838.872:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-huGulT\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0830/124838.872:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-huGulT\Crashpad\reports\795beb50-b417-4052-a2ea-9c049f048ef3.dmp: The system cannot find the path specified. (0x3)
+[0830/124838.872:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[0830/131550.357:ERROR:file_io_win.cc(161)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-b8iN04\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0830/131550.357:ERROR:file_io_win.cc(170)] CreateFile C:\Users\administrator\AppData\Local\Temp\3\puppeteer_dev_chrome_profile-b8iN04\Crashpad\reports\ffedd433-c258-4d00-b02e-83ede75306ef.dmp: The system cannot find the path specified. (0x3)
+[0830/131550.357:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
