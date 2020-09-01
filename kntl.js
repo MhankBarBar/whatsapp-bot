@@ -206,7 +206,6 @@ Season = *${resolt.docs[0].season}*
                     client.reply(from, 'Gagal mengambil metadata, link yang kamu kirim tidak valid', message.id)
                 })
             break
-        // Error !
         case 'ig':
             if (args.length >= 1) {
                 var param = body.substring(body.indexOf(' '), body.length)
@@ -470,7 +469,7 @@ Season = *${resolt.docs[0].season}*
 ║
 ╠✪〘 Downloader 〙✪═
 ╠➥!ytmp3 <link>
-╠➥!ig <link> [ error ]
+╠➥!ig <link>
 ╠➥!dujin <nuklir>
 ║
 ╠✪〘 For admin group 〙✪═
