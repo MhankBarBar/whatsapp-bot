@@ -30,9 +30,7 @@ const serverOption = {
 
 const opsys = process.platform
 if (opsys === 'win32' || opsys === 'win64') {
-    serverOption.executablePath = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
-} else if (opsys === 'win32' || opsys === 'win64') {
-    serverOption.executablePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+    serverOption.executablePath = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe' || serverOption.executablePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
 } else if (opsys === 'linux') {
     serverOption.browserRevision = '737027'
 } else if (opsys === 'darwin') {
