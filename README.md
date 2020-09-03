@@ -26,7 +26,7 @@ Jalankan <b>whatsapp-bot</b>
 ```
 
 # Commands
-<img src="https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-08-30-02-50-39-49.jpg"/>
+<img src="https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-09-04-02-10-53-48.jpg"/>
 
 ## Terms & Condition
 By using the bot you agreeing to our Terms and Conditions 
