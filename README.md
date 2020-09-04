@@ -46,5 +46,8 @@ Make sure all the necessary dependencies are installed.
 2. [`imageToSticker`](https://github.com/YogaSakti/imageToSticker)
 3. [`Whatsapp-Botto-Re`](https://github.com/SomnathDas/Whatsapp-Botto-Re)
 
-# For support
-[`!please donate:)`](https://saweria.co/donate/mhankbarbar)
+### For support
+* [`!please donate:)`](https://saweria.co/donate/mhankbarbar)
+
+### Number of bot
+* [`click here`](https://wa.me/6285242137937)
