@@ -191,7 +191,7 @@ async function msgHandler (client, message) {
                     }) 
                 })
             } else {
-                client.sendFile(from, './img/tutod.jpeg', 'Tutor.jpg', 'Neh contoh mhank!')
+                client.sendFile(from, './img/tutod.jpg', 'Tutor.jpg', 'Neh contoh mhank!')
             }
             break
         case 'ytmp3':
