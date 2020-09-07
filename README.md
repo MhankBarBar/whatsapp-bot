@@ -44,14 +44,14 @@ Your texts and your whatsapp username will be stored on our servers as long as t
 | Downloader |                     Feature                |
 | :------------: | :---------------------------------------------: |
 |       ✅        |   YouTube mp3 Downloader                    |
-|       ✅        |   Facebook Video Downloader (SD & HD)         |
-|      ✅         |   Instagram Video/Image Downloader                  |
+|       ❌        |   Doujin Downloader         |
+|       ✅        |   Instagram Video/Image Downloader                  |
 
 
 | Other  |                     Feature                     |
 | :------------: | :---------------------------------------------: |
 |       ✅        |   get a meme random             |
-|      ✅         |   Text to speech                |
+|       ✅        |   Text to speech                |
 
 
 | Group Only  |                     Feature                     |
