@@ -39,8 +39,7 @@ const startServer = async (client) => {
         client.onAddedToGroup((chat) => {
             let totalMem = chat.groupMetadata.participants.length
             if (totalMem < 30) { 
-            	client.sendText(chat.id, `Cih member nya cuma ${totalMem}, Kalo mau invite bot, minimal jumlah mem ada 30`)
-            	client.leaveGroup(chat.id)
+            	client.sendText(chat.id, `Cih member nya cuma ${totalMem}, Kalo mau invite bot, minimal jumlah mem ada 30`).then(( => client.leaveGroup(chat.id))
             	client.deleteChat(chat.id)
             } else {
                 client.sendText(chat.groupMetadata.id, `Halo warga grup *${chat.contact.name}* terimakasih sudah menginvite bot ini, untuk melihat menu silahkan kirim *!help*`)
@@ -452,10 +451,9 @@ async function msgHandler (client, message) {
                 const minMem = 30
                 const isLink = link.match(/(https:\/\/chat.whatsapp.com)/gi)
                 const check = await client.inviteInfo(link)
-                const a = await client.joinGroupViaLink(link)
                 if (!isLink) return client.reply(from, 'Ini link? 👊🤬', message.id)
                 if (check.size < minMem) return client.reply(from, 'Member group tidak melebihi 30, bot tidak bisa masuk', message.id)
-                if (a == true) {
+                if (check == true) {
                     await client.joinGroupViaLink(link)
                     client.reply(from, 'Otw join gan!', message.id)
                 } else {
