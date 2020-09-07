@@ -338,7 +338,7 @@ async function msgHandler (client, message) {
                 client.reply(from, 'Usage: \n!quotemaker |teks|watermark|theme\n\nEx :\n!quotemaker |ini contoh|bicit|random', message.id)
             }
             break
-        case 'linkGrup':
+        case 'linkgrup':
             if(!isBotGroupAdmins) return client.reply(from, 'Perintah ini hanya bisa di gunakan ketika bot menjadi admin', message.id)
             if(isGroupMsg) {
                 const inviteLink = await client.getGroupInviteLink(groupId);
@@ -373,7 +373,7 @@ async function msgHandler (client, message) {
                 hehe += '╠➥'
                 hehe += ` @${groupMem[i].id.replace(/@c.us/g, '')}\n`
             }
-            hehe += '╚═〘 Me Bot 〙'
+            hehe += '╚═〘 Shinomiya Kaguya BOT 〙'
             client.sendTextWithMentions(from, hehe)
             break
         case 'unban':
@@ -434,7 +434,7 @@ async function msgHandler (client, message) {
             await client.demoteParticipant(groupId, mentionedJidList[0])
             await client.sendTextWithMentions(from, `Perintah diterima, menghapus jabatan @${mentionedJidList[0].replace('@c.us', '')}.`)
             break
-        case 'revLinkGrup':
+        /*case 'revLinkGrup':
             if(isGroupMsg && isBotGroupAdmins && isGroupAdmins) {
                 await client.revokeGroupInviteLink(groupId)
             } else if(!isGroupMsg) {
@@ -444,7 +444,7 @@ async function msgHandler (client, message) {
             } else if(!isBotGroupAdmins) {
                 client.reply(from, 'Fitur ini hanya bisa di gunakan ketika bot menjadi admin', message.id)
             }
-            break
+            break*/
         case 'join':
             if (args.length >= 1) {
                 const link = body.slice(6)
@@ -524,6 +524,7 @@ async function msgHandler (client, message) {
 ╠➥!wait
 ╠➥!meme
 ╠➥!join <link>
+╠➥!linkgrup
 ╠➥!lirik <optional>
 ╠➥!mentionall
 ║
@@ -546,7 +547,7 @@ async function msgHandler (client, message) {
 ║
 ╠✪〘 Donate :) 〙✪════
 ╠➥!donasi
-╚═〘 Me Bot 〙`)
+╚═〘 Shinomiya Kaguya BOT 〙`)
             break
         case 'info':
             client.sendText(from, 'Ini adalah program yang ditulis dalam Javascript. \n \nDengan menggunakan bot, Anda menyetujui Syarat dan Ketentuan kami \n \nSyarat dan ketentuan \n \nTeks dan nama pengguna whatsapp Anda akan disimpan di server kami selama bot aktif, data Anda akan dihapus ketika  bot menjadi offline.  Kami TIDAK menyimpan gambar, video, file audio dan dokumen yang Anda kirim.  Kami tidak akan pernah meminta Anda untuk mendaftar atau meminta kata sandi, OTP, atau PIN Anda.\n\nTerima kasih, Selamat bersenang-senang!\n\nWarning: !!! dikarenakan saya sering melihat ada orang yang menjual bot, saya informasikan kalau bot ini geratis!.')    
