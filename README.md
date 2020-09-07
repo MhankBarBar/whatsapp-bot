@@ -26,16 +26,49 @@ Jalankan <b>whatsapp-bot</b>
 ```
 
 # Commands
-<img src="https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-09-04-02-10-53-48.jpg"/>
+<img src="https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-09-07-20-25-34-55.jpg" />
 
 ## Terms & Condition
 By using the bot you agreeing to our Terms and Conditions 
 ### Terms and conditions
 Your texts and your whatsapp username will be stored on our servers as long as the bot is active, your data will be erased when the bot goes offline. We do NOT store the images, videos, audio files and documents you send. We will never ask you to sign up or ask you for any of your passwords, OTPs or PINs. Thank you, Have a great day! 
 
-## Prerequisites
-1. Brain
-2. Node.js
+## Features
+
+| Sticker Creator |                Feature           |
+| :-----------: | :--------------------------------: |
+|       ✅       | Send Photo with Caption          |
+|       ✅       | Reply A Photo                    |
+|       ✅       | Image Url                        |
+
+
+| Downloader |                     Feature                |
+| :------------: | :---------------------------------------------: |
+|       ✅        |   YouTube mp3 Downloader                    |
+|       ✅        |   Facebook Video Downloader (SD & HD)         |
+|      ✅         |   Instagram Video/Image Downloader                  |
+
+
+| Other  |                     Feature                     |
+| :------------: | :---------------------------------------------: |
+|       ✅        |   get a meme random             |
+|      ✅         |   Text to speech                |
+
+
+| Group Only  |                     Feature                     |
+| :------------: | :---------------------------------------------: |
+|       ✅        |   Promote User                  |
+|       ✅        |   Demote User                   |
+|       ✅        |   Kick User                     |
+|       ✅        |   Add User                      |
+|       ✅        |   Mention All User              |
+
+| Owner Only  |              Feature                |
+| :------------: | :---------------------------------------------: |
+|       ✅        |   Banned users                   |
+|       ✅        |   Unbanned users                 |
+|       ✅        |   Broadcast                      |
+
 
 ### Troubleshooting
 Make sure all the necessary dependencies are installed.
