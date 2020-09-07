@@ -62,7 +62,7 @@ Your texts and your whatsapp username will be stored on our servers as long as t
 |       ✅        |   Add User                      |
 |       ✅        |   Mention All User              |
 
-| Owner Only  |              Feature                |
+| Owner Bot Only  |              Feature                |
 | :------------: | :---------------------------------------------: |
 |       ✅        |   Banned users                   |
 |       ✅        |   Unbanned users                 |
