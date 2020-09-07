@@ -129,29 +129,29 @@ async function msgHandler (client, message) {
         case 'tts':
         	if (args.length == 0) return client.reply(from, 'Kirim perintah *!tts* [id, en, jp, ar] <teks>, contoh *!tts* id halo semua')
         	const ttsId = require('node-gtts')('id')
-            const ttsEn = require('node-gtts')('en')
-			const ttsJp = require('node-gtts')('ja')
-            const ttsAr = require('node-gtts')('ar')
-            const dataText = body.slice(8)
-            var dataBhs = body.slice(5, 7)
-			if (dataBhs == 'id') {
-                ttsId.save('./tts/resId.mp3', dataText, function () {
-                    client.sendPtt(from, './tts/resId.mp3', message.id)
+                const ttsEn = require('node-gtts')('en')
+	        const ttsJp = require('node-gtts')('ja')
+                const ttsAr = require('node-gtts')('ar')
+                const dataText = body.slice(8)
+                var dataBhs = body.slice(5, 7)
+	        if (dataBhs == 'id') {
+                    ttsId.save('./tts/resId.mp3', dataText, function () {
+                        client.sendPtt(from, './tts/resId.mp3', message.id)
                 })
-			} else if (dataBhs == 'en') {
-                ttsEn.save('./tts/resEn.mp3', dataText, function () {
-                    client.sendPtt(from, './tts/resEn.mp3', message.id)
+		} else if (dataBhs == 'en') {
+                    ttsEn.save('./tts/resEn.mp3', dataText, function () {
+                        client.sendPtt(from, './tts/resEn.mp3', message.id)
                 })
-			} else if (dataBhs == 'jp') {
-                ttsJp.save('./tts/resJp.mp3', dataText, function () {
-                    client.sendPtt(from, './tts/resJp.mp3', message.id)
+		} else if (dataBhs == 'jp') {
+                    ttsJp.save('./tts/resJp.mp3', dataText, function () {
+                        client.sendPtt(from, './tts/resJp.mp3', message.id)
                 })
-			} else if (dataBhs == 'ar') {
-                ttsAr.save('./tts/resAr.mp3', dataText, function () {
-                    client.sendPtt(from, './tts/resAr.mp3', message.id)
+		} else if (dataBhs == 'ar') {
+                    ttsAr.save('./tts/resAr.mp3', dataText, function () {
+                        client.sendPtt(from, './tts/resAr.mp3', message.id)
                 })
-			} else {
-				client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', message.id)
+		} else {
+		    client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', message.id)
             }
             break
         case 'wait':
