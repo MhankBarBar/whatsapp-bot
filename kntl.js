@@ -7,18 +7,11 @@ const get = require('got')
 const color = require('./lib/color')
 const { liriklagu, quotemaker } = require('./lib/functions')
 const quotedd = require('./lib/quote')
+let ban = JSON.parse(fs.readFileSync('./lib/banned.json'))
 
 const serverOption = {
-    useChrome: true,
-    //restartOnCrash: start,
     headless:false,
-    throwErrorOnTosBlock:true,
-    //qrTimeout:60,
-    authTimeout:60,
-    killProcessOnBrowserClose: true,
-    autoRefresh:true, //default to true
-    qrRefreshS:15, //please note that if this is too long then your qr code scan may end up being invalid. Generally qr codes expire every 15 seconds.
-    safeMode: true,
+    cacheEnabled: false,
     hostNotificationLang: NotificationLanguage.IDID
 }
 
@@ -31,52 +24,52 @@ if (opsys === 'win32' || opsys === 'win64') {
     serverOption.executablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 }
 
-const startServer = async () => {
-    create('Imperial', serverOption)
-        .then((client) => {
-            console.log('[SERVER] Server Started!')
-            // Force it to keep the current session
-            client.onStateChanged((state) => {
+const startServer = async (client) => {
+        console.log('[SERVER] Server Started!')
+        // Force it to keep the current session
+        client.onStateChanged((state) => {
                 console.log('[Client State]', state)
                 if (state === 'CONFLICT') client.forceRefocus()
-            })
-            // listening on message
-            client.onMessage((message) => {
-                msgHandler(client, message)
-            })
+        })
+        // listening on message
+        client.onMessage((message) => {
+            msgHandler(client, message)
+        })
 
-            client.onAddedToGroup((chat) => {
-            	let totalMem = chat.groupMetadata.participants.length
-            	if (totalMem < 30) { 
-            		client.sendText(chat.id, `Cih member nya cuma ${totalMem}, Kalo mau invite bot, minimal jumlah mem ada 31`)
-            		client.leaveGroup(chat.id)
-            		client.deleteChat(chat.id)
-            	} else {
-                	client.sendText(chat.groupMetadata.id, `Halo warga grup *${chat.contact.name}* terimakasih sudah menginvite bot ini, untuk melihat menu silahkan kirim *!help*`)
-                }
-            })
-            // listening on Incoming Call
-            client.onIncomingCall((call) => {
-                client.sendText(call.peerJid, 'Maaf, saya tidak bisa menerima panggilan. nelfon = block!')
-                client.contactBlock(call.peerJid)
-                client.deleteChat(call.peerJid)
-            })
+        client.onAddedToGroup((chat) => {
+            let totalMem = chat.groupMetadata.participants.length
+            if (totalMem < 30) { 
+            	client.sendText(chat.id, `Cih member nya cuma ${totalMem}, Kalo mau invite bot, minimal jumlah mem ada 30`)
+            	client.leaveGroup(chat.id)
+            	client.deleteChat(chat.id)
+            } else {
+                client.sendText(chat.groupMetadata.id, `Halo warga grup *${chat.contact.name}* terimakasih sudah menginvite bot ini, untuk melihat menu silahkan kirim *!help*`)
+            }
         })
-        .catch((err) => {
-            console.error(err)
+        // listening on Incoming Call
+        client.onIncomingCall((call) => {
+            client.sendText(call.peerJid, 'Maaf, saya tidak bisa menerima panggilan. nelfon = block!')
+            client.contactBlock(call.peerJid)
+            ban.push(call.peerJid)
+            fs.writeFileSync('./lib/banned.json', JSON.stringify(ban))
+            client.deleteChat(call.peerJid)
         })
-}
+    }
+
+create('Imperial', serverOption)
+    .then(async (client) => startServer(client))
+    .catch((error) => console.log(error))
 
 async function msgHandler (client, message) {
     try {
-        const { type, id, from, t, sender, isGroupMsg, chat, caption, isMedia, mimetype, quotedMsg, mentionedJidList } = message
+        const { type, id, from, t, sender, isGroupMsg, chat, chatId, caption, isMedia, mimetype, quotedMsg, mentionedJidList } = message
         let { body } = message
         const { name } = chat
         let { pushname, verifiedName } = sender
         const prefix = '!'
         body = (type === 'chat' && body.startsWith(prefix)) ? body : ((type === 'image' && caption) && caption.startsWith(prefix)) ? caption : ''
         const command = body.slice(prefix.length).trim().split(/ +/).shift().toLowerCase()
-        const args = body.slice(prefix.length).trim().split(/ +/).slice(1)
+        const args = body.trim().split(' ')
         const isCmd = body.startsWith(prefix)
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
         if (!isCmd && !isGroupMsg) return console.log('[RECV]', color(time, 'yellow'), 'Message from', color(pushname))
@@ -88,19 +81,22 @@ async function msgHandler (client, message) {
         const groupAdmins = isGroupMsg ? await client.getGroupAdmins(groupId) : ''
         const isGroupAdmins = isGroupMsg ? groupAdmins.includes(sender.id) : false
         const isBotGroupAdmins = isGroupMsg ? groupAdmins.includes(botNumber + '@c.us') : false
+        const isBanned = ban.includes(sender.id)
+        const isAuthor = sender.id === '6285892766102@c.us'
         const uaOverride = 'WhatsApp/2.2029.4 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
         const isUrl = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/gi)
-        switch (command) {
+        if (!isBanned) {
+            switch (command) {
             case 'sticker':
             case 'stiker':
                 if (isMedia) {
                     const mediaData = await decryptMedia(message)
                     const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-                    await client.sendImageAsSticker(from, imageBase64, message)
+                    await client.sendImageAsSticker(from, imageBase64, message.id)
                 } else if (quotedMsg && quotedMsg.type == 'image') {
                     const mediaData = await decryptMedia(quotedMsg)
                     const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
-                    await client.sendImageAsSticker(from, imageBase64, message)
+                    await client.sendImageAsSticker(from, imageBase64, message.id)
                 } else if (args.length >= 1) {
                     const url = args[1]
                     if (url.match(isUrl)) {
@@ -157,7 +153,7 @@ async function msgHandler (client, message) {
 			} else {
 				client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', message.id)
             }
-        break
+            break
         case 'wait':
             if (isMedia) {
                 const fetch = require('node-fetch')
@@ -182,8 +178,7 @@ async function msgHandler (client, message) {
                     if (similarity < 0.92) {
                     	teks = 'Saya memiliki keyakinan rendah dalam hal ini :\n'
                     }
-                    teks += [title, title_chinese, title_romaji, title_english]
-                    teks += '\n'
+                    teks += `${[title, title_chinese, title_romaji, title_english]}\n`
                     teks += `Eps : ${episode.toString()}\n`
                     teks += `Kesamaan : ${(similarity * 100).toFixed(1)}%\n`
                     var video = `https://trace.moe/preview.php?anilist_id=${anilist_id}&file=${encodeURIComponent(filename)}&t=${at}&token=${tokenthumb}`;
@@ -205,7 +200,7 @@ async function msgHandler (client, message) {
                         client.reply(from, 'Videonya ga valid!', message.id)
                     } else {
                         client.reply(from, `Title : ${resp.title}`, message.id)
-                        await client.sendFileFromUrl(from, `https://yutmp3.herokuapp.com${resp.file}`, `${resp.title}.mp3`)
+                        await client.sendFileFromUrl(from, `https://yutmp3.herokuapp.com${resp.file}`, `${resp.title}.mp3`, '', message.id)
                     }
                 } catch {
                     client.reply(from, 'Terjadi kesalahan!', message.id)
@@ -239,7 +234,7 @@ async function msgHandler (client, message) {
                     }else{
                         var ext = '.mp4'
                     }
-                        client.sendFileFromUrl(from, resp.descriptionc, `igeh${ext}`)
+                        client.sendFileFromUrl(from, resp.descriptionc, `igeh${ext}`, '', message.id)
                 } catch {
                     client.reply(from, 'Terjadi kesalahan!')
                     }
@@ -312,11 +307,15 @@ async function msgHandler (client, message) {
                         tanya
                     }
                     let quest = body.slice(9)
-                    client.reply(from, `*Pertanyaan : ${quest.split(' .')[0]}*\n*Jumlah jawaban : ${Number(jum)}*`, message.id)
-                    BrainlySearch(quest.split(' .')[0],Number(jum), function(res){
+                    client.reply(from, `══✪〘 *Pertanyaan* 〙✪══\n\n_${quest.split('.')[0]}_\n\n══✪〘 Jumlah jawaban 〙✪══\n\t  [${Number(jum)}]`, message.id)
+                    BrainlySearch(quest.split('.')[0],Number(jum), function(res){
                         console.log(res)
                         res.forEach(x=>{
-                            client.reply(from, `*foto pertanyaan*\n${x.fotoPertanyaan.join('\n')}\n*pertanyaan :*\n${x.pertanyaan}\n\n*jawaban :*\n${x.jawaban.judulJawaban}\n\n*foto jawaban*\n${x.jawaban.fotoJawaban.join('\n')}`, message.id)
+                            if (x.jawaban.fotoJawaban.length == 0) {
+                                client.reply(from, `══✪〘 *Pertanyaan* 〙✪══\n\n_${x.pertanyaan}_\n\n══✪〘 *Jawaban* 〙✪══\n\n${x.jawaban.judulJawaban}\n`, message.id)
+                            } else {
+                                client.reply(from, `══✪〘 *Pertanyaan* 〙✪══\n\n${x.pertanyaan}\n\n══✪〘 *Jawaban* 〙✪══\n\n${x.jawaban.judulJawaban}\n\n╔══✪〘 *Link foto jawaban* 〙✪══\n╠➣${x.jawaban.fotoJawaban.join('\n')}`)
+                            }
                         })
                     })
             } else {
@@ -349,15 +348,51 @@ async function msgHandler (client, message) {
             	client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', message.id)
             }
             break
+        case 'bc':
+            if(!isAuthor) return client.reply(from, 'Perintah ini hanya untuk author bot!', message.id)
+            let msg = body.slice(4)
+            const chatz = await client.getAllChatIds()
+            for (let ids of chatz) {
+                var cvk = await client.getChatById(ids)
+                if (!cvk.isReadOnly) client.sendText(ids, `[ Me Bot Broadcast ]\n\n${msg}`)
+            }
+            client.reply(from, 'Broadcast Success!', message.id)
+            break
+        case 'ban':
+            if(!isAuthor) return client.reply(from, 'Perintah *!ban* hanya untuk author bot!', message.id)
+            for (let i = 0; i < mentionedJidList.length; i++) {
+                ban.push(mentionedJidList[i])
+                fs.writeFileSync('./lib/banned.json', JSON.stringify(ban))
+                client.reply(from, 'Succes ban target!', message.id)
+            }
+            break
+        case 'mentionall':
+            if (!isGroupMsg) return client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!',message.id)
+            const groupMem = await client.getGroupMembers(groupId)
+            let hehe = '╔══✪〘 Mention All 〙✪══\n'
+            for (let i = 0; i < groupMem.length; i++) {
+                hehe += '╠➥'
+                hehe += ` @${groupMem[i].id.replace(/@c.us/g, '')}\n`
+            }
+            hehe += '╚═〘 Me Bot 〙'
+            client.sendTextWithMentions(from, hehe)
+            break
+        case 'unban':
+            if(!isAuthor) return client.reply(from, 'Perintah *!unban* hanya untuk author bot!', message.id)
+            let inx = ban.indexOf(mentionedJidList[0])
+            ban.splice(inx, 1)
+            fs.writeFileSync('./lib/banned.json', JSON.stringify(ban))
+            client.reply(from, 'Succes unban target!', message.id)
+            break
         case 'add':
             if(!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', message.id)
             if(args.length == 0) return client.reply(from, 'Untuk menggunakan fitur ini, kirim perintah *!add* 628xxxxx', message.id)
             if(!isGroupAdmins) return client.reply(from, 'Perintah ini hanya bisa di gunakan oleh admin group', message.id)
             if(!isBotGroupAdmins) return client.reply(from, 'Perintah ini hanya bisa di gunakan ketika bot menjadi admin', message.id)
             try {
-                await client.addParticipant(from,`${args[1]}@c.us`)
+                await client.addParticipant(from,`${body.slice(5)}@c.us`)
             } catch {
-                client.reply(from, `Tidak dapat menambahkan ${args[1]} mungkin karena di private`, message.id)
+                client.reply(from, `Tidak dapat menambahkan ${body.slice(5)} mungkin karena di private`, message.id)
             }
             break
         case 'kick':
@@ -378,8 +413,7 @@ async function msgHandler (client, message) {
         case 'leave':
             if(!isGroupMsg) return client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group', message.id)
             if(!isGroupAdmins) return client.reply(from, 'Perintah ini hanya bisa di gunakan oleh admin group', message.id)
-            client.sendText(from,'Sayonara')
-            client.leaveGroup(groupId)
+            await client.sendText(from,'Sayonara').then(() => client.leaveGroup(groupId))
             break
         case 'promote':
             if(!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', message.id)
@@ -415,21 +449,17 @@ async function msgHandler (client, message) {
         case 'join':
             if (args.length >= 1) {
                 const link = body.slice(6)
-                if (link.match(/(https:\/\/chat.whatsapp.com)/gi)) {
-                    const check = await client.inviteInfo(link)
-                    if (check.size < 30) {
-                        client.reply(from, 'Member group tidak melebihi 30, bot tidak bisa masuk', message.id)
-                    } else {
-                    	try {
-                        	await client.joinGroupViaLink(link).then(async () => {
-                        		client.reply(from, 'Otw join gan', message.id)
-                        	})
-                        } catch (error) {
-                        	client.reply(from, 'Terjadi kesalahan, mungkin link group tidak valid', message.id)
-                        }
-                    } 
+                const minMem = 30
+                const isLink = link.match(/(https:\/\/chat.whatsapp.com)/gi)
+                const check = await client.inviteInfo(link)
+                const a = await client.joinGroupViaLink(link)
+                if (!isLink) return client.reply(from, 'Ini link? 👊🤬', message.id)
+                if (check.size < minMem) return client.reply(from, 'Member group tidak melebihi 30, bot tidak bisa masuk', message.id)
+                if (a == true) {
+                    await client.joinGroupViaLink(link)
+                    client.reply(from, 'Otw join gan!', message.id)
                 } else {
-                    client.reply(from, 'Ini link? 👊🤬', message.id)
+                    client.reply(from, 'Terjadi kesalahan, mungkin link group tidak valid', message.id)
                 }
             } else {
                 client.reply(from, 'Kirim perintah *!join* linkgroup\n\nEx:\n!join https://chat.whatsapp.com/blablablablablabla', message.id)
@@ -477,8 +507,48 @@ async function msgHandler (client, message) {
             await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
             break
         case 'help':
-            var teks = 'e29594e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e295900ae295a0e29590e29590e29caae3809820436f6d6d616e647320e38099e29caae29590e295900ae295a0e29ea521737469636b65720ae295a0e29ea5216e656b6f0ae295a0e29ea521706f6b656d6f6e0ae295a0e29ea521696e750ae295a0e29ea521627261696e6c79203c70657274616e7961616e3e203c2e6a756d3e0ae295a0e29ea521747473205b69642c20656e2c206a702c2061725d0ae295a0e29ea52171756f74656d616b6572203c6f7074696f6e616c3e0ae295a0e29ea52177616c6c70617065720ae295a0e29ea521696e666f0ae295a0e29ea52171756f7465730ae295a0e29ea52177616966750ae295a0e29ea521776169740ae295a0e29ea5216d656d650ae295a0e29ea5216a6f696e203c6c696e6b3e0ae295a0e29ea5216c6972696b203c6f7074696f6e616c3e0ae295910ae295a0e29caae3809820446f776e6c6f6164657220e38099e29caae295900ae295a0e29ea52179746d7033203c6c696e6b3e0ae295a0e29ea5216967203c6c696e6b3e0ae295a0e29ea52164756a696e203c6e756b6c69723e205b204f6666205d0ae295910ae295a0e29caae3809820466f722061646d696e2067726f757020e38099e29caae295900ae295a0e29ea52161646420363238787878780ae295a0e29ea5216b69636b203c407461676d656d6265723e0ae295a0e29ea52170726f6d6f7465203c407461676d656d6265723e0ae295a0e29ea52164656d6f7465203c4074616761646d696e3e0ae295a0e29ea5216c656176650ae295910ae295a0e29caae3809820446f6e617465203a2920e38099e29caae29590e29590e29590e295900ae295a0e29ea521646f6e6173690ae2959ae29590e38098204d6520426f7420e38099'
-            client.sendText(from, Buffer.from(teks, 'hex').toString('utf-8'))
+            //var teks = 'e29594e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e29590e295900ae295a0e29590e29590e29caae3809820436f6d6d616e647320e38099e29caae29590e295900ae295a0e29ea521737469636b65720ae295a0e29ea5216e656b6f0ae295a0e29ea521706f6b656d6f6e0ae295a0e29ea521696e750ae295a0e29ea521627261696e6c79203c70657274616e7961616e3e203c2e6a756d3e0ae295a0e29ea521747473205b69642c20656e2c206a702c2061725d0ae295a0e29ea52171756f74656d616b6572203c6f7074696f6e616c3e0ae295a0e29ea52177616c6c70617065720ae295a0e29ea521696e666f0ae295a0e29ea52171756f7465730ae295a0e29ea52177616966750ae295a0e29ea521776169740ae295a0e29ea5216d656d650ae295a0e29ea5216a6f696e203c6c696e6b3e0ae295a0e29ea5216c6972696b203c6f7074696f6e616c3e0ae295910ae295a0e29caae3809820446f776e6c6f6164657220e38099e29caae295900ae295a0e29ea52179746d7033203c6c696e6b3e0ae295a0e29ea5216967203c6c696e6b3e0ae295a0e29ea52164756a696e203c6e756b6c69723e205b204f6666205d0ae295910ae295a0e29caae3809820466f722061646d696e2067726f757020e38099e29caae295900ae295a0e29ea52161646420363238787878780ae295a0e29ea5216b69636b203c407461676d656d6265723e0ae295a0e29ea52170726f6d6f7465203c407461676d656d6265723e0ae295a0e29ea52164656d6f7465203c4074616761646d696e3e0ae295a0e29ea5216c656176650ae295910ae295a0e29caae3809820446f6e617465203a2920e38099e29caae29590e29590e29590e295900ae295a0e29ea521646f6e6173690ae2959ae29590e38098204d6520426f7420e38099'
+            //client.sendText(from, Buffer.from(teks, 'hex').toString('utf-8'))
+            client.sendText(from, `
+╔═══════════════
+╠══✪〘 Commands 〙✪══
+╠➥!sticker
+╠➥!neko
+╠➥!pokemon
+╠➥!inu
+╠➥!brainly <pertanyaan> <.jum>
+╠➥!tts [id, en, jp, ar]
+╠➥!quotemaker <optional>
+╠➥!wallpaper
+╠➥!info
+╠➥!quotes
+╠➥!waifu
+╠➥!wait
+╠➥!meme
+╠➥!join <link>
+╠➥!lirik <optional>
+╠➥!mentionall
+║
+╠✪〘 Downloader 〙✪═
+╠➥!ytmp3 <link>
+╠➥!ig <link>
+╠➥!dujin <nuklir> [ Off ]
+║
+╠✪〘 For admin group 〙✪═
+╠➥!add 628xxxx
+╠➥!kick <@tagmember>
+╠➥!promote <@tagmember>
+╠➥!demote <@tagadmin>
+╠➥!leave
+║
+╠✪〘 For author bot 〙✪═
+╠➥!ban <target>
+╠➥!unban <target>
+╠➥!bc <text>
+║
+╠✪〘 Donate :) 〙✪════
+╠➥!donasi
+╚═〘 Me Bot 〙`)
             break
         case 'info':
             client.sendText(from, 'Ini adalah program yang ditulis dalam Javascript. \n \nDengan menggunakan bot, Anda menyetujui Syarat dan Ketentuan kami \n \nSyarat dan ketentuan \n \nTeks dan nama pengguna whatsapp Anda akan disimpan di server kami selama bot aktif, data Anda akan dihapus ketika  bot menjadi offline.  Kami TIDAK menyimpan gambar, video, file audio dan dokumen yang Anda kirim.  Kami tidak akan pernah meminta Anda untuk mendaftar atau meminta kata sandi, OTP, atau PIN Anda.\n\nTerima kasih, Selamat bersenang-senang!\n\nWarning: !!! dikarenakan saya sering melihat ada orang yang menjual bot, saya informasikan kalau bot ini geratis!.')    
@@ -487,9 +557,8 @@ async function msgHandler (client, message) {
             console.log(color('[ERROR]', 'red'), color(time, 'yellow'), 'Unregistered Command from', color(pushname))
             break
         }
+    }
     } catch (err) {
         console.log(color('[ERROR]', 'red'), err)
     }
 }
-
-startServer()
