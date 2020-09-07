@@ -25,7 +25,7 @@ Sebelum menjalankan edit dulu bagian [ini](https://github.com/MhankBarBar/whatsa
 ```
 
 # Commands
-<img src="https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-09-07-20-25-34-55.jpg" />
+<img src=https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-09-08-00-24-53-25.jpg />
 
 ## Terms & Condition
 By using the bot you agreeing to our Terms and Conditions 
@@ -50,8 +50,14 @@ Your texts and your whatsapp username will be stored on our servers as long as t
 
 | Other  |                     Feature                     |
 | :------------: | :---------------------------------------------: |
-|       ✅        |   get a meme random             |
+|       ✅        |   Get a random meme             |
 |       ✅        |   Text to speech                |
+|       ✅        |   Brainly                       |
+|       ✅        |   Get a random waifu images     |
+|       ✅        |   Get a random quotes           |
+|       ✅        |   Get a random cat images       |
+|       ✅        |   Get a random dog images       |
+|      And        |   Others...                     |
 
 
 | Group Only  |                     Feature                     |
@@ -61,6 +67,7 @@ Your texts and your whatsapp username will be stored on our servers as long as t
 |       ✅        |   Kick User                     |
 |       ✅        |   Add User                      |
 |       ✅        |   Mention All User              |
+|       ✅        |   Get link group                |
 
 | Owner Bot Only  |              Feature                |
 | :------------: | :---------------------------------------------: |
