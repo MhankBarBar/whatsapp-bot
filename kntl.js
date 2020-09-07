@@ -82,7 +82,7 @@ async function msgHandler (client, message) {
         const isGroupAdmins = isGroupMsg ? groupAdmins.includes(sender.id) : false
         const isBotGroupAdmins = isGroupMsg ? groupAdmins.includes(botNumber + '@c.us') : false
         const isBanned = ban.includes(sender.id)
-        const isAuthor = sender.id === '6285892766102@c.us'
+        const isOwner = sender.id === '628xxxxx@c.us'
         const uaOverride = 'WhatsApp/2.2029.4 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
         const isUrl = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/gi)
         if (!isBanned) {
@@ -349,7 +349,7 @@ async function msgHandler (client, message) {
             }
             break
         case 'bc':
-            if(!isAuthor) return client.reply(from, 'Perintah ini hanya untuk author bot!', message.id)
+            if(!isOwner) return client.reply(from, 'Perintah ini hanya untuk owner bot!', message.id)
             let msg = body.slice(4)
             const chatz = await client.getAllChatIds()
             for (let ids of chatz) {
@@ -359,7 +359,7 @@ async function msgHandler (client, message) {
             client.reply(from, 'Broadcast Success!', message.id)
             break
         case 'ban':
-            if(!isAuthor) return client.reply(from, 'Perintah *!ban* hanya untuk author bot!', message.id)
+            if(!isOwner) return client.reply(from, 'Perintah *!ban* hanya untuk owner bot!', message.id)
             for (let i = 0; i < mentionedJidList.length; i++) {
                 ban.push(mentionedJidList[i])
                 fs.writeFileSync('./lib/banned.json', JSON.stringify(ban))
@@ -378,7 +378,7 @@ async function msgHandler (client, message) {
             client.sendTextWithMentions(from, hehe)
             break
         case 'unban':
-            if(!isAuthor) return client.reply(from, 'Perintah *!unban* hanya untuk author bot!', message.id)
+            if(!isOwner) return client.reply(from, 'Perintah *!unban* hanya untuk owner bot!', message.id)
             let inx = ban.indexOf(mentionedJidList[0])
             ban.splice(inx, 1)
             fs.writeFileSync('./lib/banned.json', JSON.stringify(ban))
