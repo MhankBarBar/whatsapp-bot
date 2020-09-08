@@ -19,7 +19,7 @@ you've just cloned!!
 ```
 
 ### Usage
-Sebelum menjalankan edit dulu bagian [ini](https://github.com/MhankBarBar/whatsapp-bot/blob/master/kntl.js#L85) dengan nomor WhatsApp mu, ingat nomor WhatsApp mu! Bukan nomor bot
+Sebelum menjalankan edit dulu bagian [ini](https://github.com/MhankBarBar/whatsapp-bot/blob/master/kntl.js#L84) dengan nomor WhatsApp mu, ingat nomor WhatsApp mu! Bukan nomor bot
 ```bash
 > npm start
 ```
