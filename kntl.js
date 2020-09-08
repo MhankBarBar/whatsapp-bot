@@ -353,7 +353,7 @@ async function msgHandler (client, message) {
             const chatz = await client.getAllChatIds()
             for (let ids of chatz) {
                 var cvk = await client.getChatById(ids)
-                if (!cvk.isReadOnly) client.sendText(ids, `[ Me Bot Broadcast ]\n\n${msg}`)
+                if (!cvk.isReadOnly) client.sendText(ids, `[ Shinomiya Kaguya Bot Broadcast ]\n\n${msg}`)
             }
             client.reply(from, 'Broadcast Success!', message.id)
             break
