@@ -61,8 +61,8 @@ const startServer = async (client) => {
         client.onIncomingCall((call) => {
             client.sendText(call.peerJid, 'Maaf, saya tidak bisa menerima panggilan. nelfon = block!')
             client.contactBlock(call.peerJid)
-            ban.push(call.peerJid)
-            fs.writeFileSync('./lib/banned.json', JSON.stringify(ban))
+            //ban.push(call.peerJid)
+            //fs.writeFileSync('./lib/banned.json', JSON.stringify(ban))
         })
     }
 
