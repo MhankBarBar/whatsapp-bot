@@ -1,5 +1,4 @@
 const { decryptMedia } = require('@open-wa/wa-decrypt')
-const { NotificationLanguage } = require('@open-wa/wa-automate/dist/api/model')
 const fs = require('fs-extra')
 const axios = require('axios')
 const moment = require('moment-timezone')
