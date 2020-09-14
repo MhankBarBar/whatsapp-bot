@@ -378,7 +378,7 @@ module.exports = msgHandler = async (client, message) => {
                 if (groupAdmins.includes(allMem[i].id)) return
                 await client.removeParticipant(groupId, allMem[i].id)
             }
-            client.reply(from, 'Succes kick all member', messag.id)
+            client.reply(from, 'Succes kick all member', message.id)
             break
         case 'leaveall':
             if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot', message.id)
