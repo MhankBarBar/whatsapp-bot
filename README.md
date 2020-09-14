@@ -1,9 +1,6 @@
 # whatsapp-bot
 Halo sesama pengguna, <b>whatsapp-bot</b> adalah skrip otomatisasi whatsapp atau lebih seperti bot yang merespons kata kunci tertentu dan beberapa fitur lain yang sedang kami kerjakan.
 
-Ini adalah program yang ditulis dalam Javascript.
-Project ini membutuhkan NodeJS v12.
-
 ## Clone project ini
 
 ```bash
@@ -19,13 +16,10 @@ you've just cloned!!
 ```
 
 ### Usage
-Sebelum menjalankan edit dulu bagian [ini](https://github.com/MhankBarBar/whatsapp-bot/blob/master/kntl.js#L84) dengan nomor WhatsApp mu, ingat nomor WhatsApp mu! Bukan nomor bot
+Sebelum menjalankan edit dulu bagian [`INI`](https://github.com/MhankBarBar/whatsapp-bot/blob/master/msgHndlr.js#L41) dengan nomor WhatsApp mu, ingat nomor WhatsApp mu! Bukan nomor bot, Lalu
 ```bash
 > npm start
 ```
-
-# Commands
-<img src=https://github.com/MhankBarBar/whatsapp-bot/blob/master/img/Screenshot_2020-09-08-00-24-53-25.jpg />
 
 ## Terms & Condition
 By using the bot you agreeing to our Terms and Conditions 
