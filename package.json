@@ -15,7 +15,7 @@
     "axios": "^0.19.2",
     "brainly-scraper": "^1.0.2",
     "fs-extra": "^9.0.1",
-    "got": "^11.5.2",
+    "got": "^11.7.0",
     "moment-timezone": "^0.5.31",
     "nana-api": "^1.1.2",
     "node-fetch": "^2.6.1",
