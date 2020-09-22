@@ -13,7 +13,7 @@
     "@open-wa/wa-automate": "^2.0.22",
     "@open-wa/wa-decrypt": "^2.0.1",
     "axios": "^0.19.2",
-    "brainly-scraper": "^1.0.1",
+    "brainly-scraper": "^1.0.2",
     "fs-extra": "^9.0.1",
     "got": "^11.5.2",
     "moment-timezone": "^0.5.31",
