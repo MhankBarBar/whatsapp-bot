@@ -22,7 +22,7 @@
     "node-gtts": "^2.0.2",
     "remove.bg": "^1.3.0",
     "request": "^2.88.2",
-    "tiktok-scraper": "^1.3.0",
+    "tiktok-scraper": "^1.3.3",
     "video-url-link": "^0.1.4"
   },
   "directories": {
