@@ -113,10 +113,10 @@ module.exports = msgHandler = async (client, message) => {
             client.sendLinkWithAutoPreview(from, 'https://saweria.co/donate/mhankbarbar', donate)
             break
         case '!tts':
-        	if (args.length === 1) return await client.reply(from, 'Kirim perintah *!tts* [id, en, jp, ar] [teks], contoh *!tts* id halo semua')
-        	const ttsId = require('node-gtts')('id')
+            if (args.length === 1) return await client.reply(from, 'Kirim perintah *!tts* [id, en, jp, ar] [teks], contoh *!tts* id halo semua')
+            const ttsId = require('node-gtts')('id')
             const ttsEn = require('node-gtts')('en')
-	        const ttsJp = require('node-gtts')('ja')
+	    const ttsJp = require('node-gtts')('ja')
             const ttsAr = require('node-gtts')('ar')
             const dataText = body.slice(8)
             if (dataText === '') return await client.reply(from, 'Baka?', id)
@@ -170,7 +170,7 @@ module.exports = msgHandler = async (client, message) => {
             })
             break
         case '!ytmp3':
-            if (args.length === 1) return await client.reply(from, 'Kirim perintwh *!ytmp3 [linkYt]*, untuk contoh silahkan kirim perintah *!readme*')
+            if (args.length === 1) return await client.reply(from, 'Kirim perintah *!ytmp3 [linkYt]*, untuk contoh silahkan kirim perintah *!readme*')
             let isLinks = args[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
             if (!isLinks) return await client.reply(from, mess.error.Iv, id)
             try {
@@ -190,7 +190,7 @@ module.exports = msgHandler = async (client, message) => {
             }
             break
         case '!ytmp4':
-            if (args.length === 1) return await client.reply(from, 'Kirim perintwh *!ytmp4 [linkYt]*, untuk contoh silahkan kirim perintah *!readme*')
+            if (args.length === 1) return await client.reply(from, 'Kirim perintah *!ytmp4 [linkYt]*, untuk contoh silahkan kirim perintah *!readme*')
             let isLin = args[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
             if (!isLin) return await client.reply(from, mess.error.Iv, id)
             try {
