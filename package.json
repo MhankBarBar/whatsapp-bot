@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Undefined",
+  "author": "Mhank BarBar",
   "license": "Apache-2.0",
   "dependencies": {
     "@open-wa/wa-automate": "^2.0.25",
@@ -15,7 +15,6 @@
     "axios": "^0.19.2",
     "brainly-scraper": "^1.0.2",
     "fs-extra": "^9.0.1",
-    "gify": "^0.2.0",
     "got": "^11.7.0",
     "moment-timezone": "^0.5.31",
     "needle": "^2.5.2",
