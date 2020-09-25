@@ -1,7 +1,17 @@
-# whatsapp-bot
-Halo sesama pengguna, <b>whatsapp-bot</b> adalah skrip otomatisasi whatsapp atau lebih seperti bot yang merespons kata kunci tertentu dan beberapa fitur lain yang sedang kami kerjakan.
+<p align="center">
+<a href="#"><img title="Whatsapp-Bot" src="https://img.shields.io/badge/Whatsapp Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+</p>
+<p align="center">
+<a href="https://github.com/mhankbarbar"><img title="Author" src="https://img.shields.io/badge/Author-mhankbarbar-red.svg?style=for-the-badge&logo=github"></a>
+</p>
+<p align="center">
+<a href="https://github.com/mhankbarbar/followers"><img title="Followers" src="https://img.shields.io/github/followers/mhankbarbar?color=blue&style=flat-square"></a>
+<a href="https://github.com/mhankbarbar/whatsapp-bot/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/mhankbarbar/whatsapp-bot?color=red&style=flat-square"></a>
+<a href="https://github.com/mhankbarbar/whatsapp-bot/network/members"><img title="Forks" src="https://img.shields.io/github/forks/mhankbarbar/whatsapp-bot?color=red&style=flat-square"></a>
+<a href="https://github.com/mhankbarbar/whatsapp-bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/mhankbarbar/whatsapp-bot?label=Watchers&color=blue&style=flat-square"></a>
+</p>
 
-## Clone project ini
+## Clone this project
 
 ```bash
 > git clone https://github.com/MhankBarBar/whatsapp-bot
@@ -16,7 +26,7 @@ you've just cloned!!
 ```
 
 ### Usage
-Sebelum menjalankan edit dulu bagian [`INI`](https://github.com/MhankBarBar/whatsapp-bot/blob/master/msgHndlr.js#L41) dengan nomor WhatsApp mu, ingat nomor WhatsApp mu! Bukan nomor bot, Lalu
+Before running this script, first edit [`THIS`](https://github.com/MhankBarBar/whatsapp-bot/blob/master/msgHndlr.js#L55) section with your WhatsApp number, remember your WhatsApp number!  Not a bot number, then
 ```bash
 > npm start
 ```
@@ -40,15 +50,20 @@ Your texts and your whatsapp username will be stored on our servers as long as t
 |       ✅        |   YouTube mp3 Downloader                    |
 |       ❌        |   Doujin Downloader         |
 |       ✅        |   Instagram Video/Image Downloader                  |
+|       ✅        |   Facebook Video Downloader                  |
 
 
 | Other  |                     Feature                     |
 | :------------: | :---------------------------------------------: |
 |       ✅        |   Get a random meme             |
 |       ✅        |   Text to speech                |
-|       ✅        |   Brainly                       |
 |       ✅        |   Get a random waifu images     |
 |       ✅        |   Get a random quotes           |
+|       ✅        |   Get a random anime quotes     |
+|       ✅        |   Get info gempa from BMKG      |
+|       ✅        |   Weather's report's     |
+|       ✅        |   Wikipedia                 |
+|       ✅        |   Get a random anime quotes     |
 |       ✅        |   Get a random cat images       |
 |       ✅        |   Get a random dog images       |
 |      And        |   Others...                     |
@@ -62,15 +77,18 @@ Your texts and your whatsapp username will be stored on our servers as long as t
 |       ✅        |   Add User                      |
 |       ✅        |   Mention All User              |
 |       ✅        |   Get link group                |
+|       ✅        |   Get Admin list                |
+|       ✅        |   Get owner group                |
+
 
 | Owner Group Only  |              Feature                |
 | :------------: | :---------------------------------------------: |
-|       ✅        |   Kick All Member                   |
+|       ✅        |   Kick All Member Group                 |
 
 | Owner Bot Only  |              Feature                |
 | :------------: | :---------------------------------------------: |
-|       ✅        |   Banned users                   |
-|       ✅        |   Unbanned users                 |
+|       ✅        |   leave all group                   |
+|       ✅        |   clear all message                 |
 |       ✅        |   Broadcast                      |
 
 
