@@ -10,10 +10,11 @@
   "author": "Mhank BarBar",
   "license": "Apache-2.0",
   "dependencies": {
-    "@open-wa/wa-automate": "^2.0.25",
+    "@open-wa/wa-automate": "^2.0.27",
     "@open-wa/wa-decrypt": "^2.0.1",
     "axios": "^0.19.2",
     "brainly-scraper": "^1.0.2",
+    "emoji-regex": "^9.0.0",
     "chalk": "^4.1.0",
     "fs-extra": "^9.0.1",
     "got": "^11.7.0",
@@ -25,7 +26,7 @@
     "node-gtts": "^2.0.2",
     "remove.bg": "^1.3.0",
     "request": "^2.88.2",
-    "tiktok-scraper": "^1.3.3",
+    "tiktok-scraper": "^1.3.4",
     "video-url-link": "^0.1.4"
   },
   "directories": {
