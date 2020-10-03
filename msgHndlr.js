@@ -125,20 +125,20 @@ module.exports = msgHandler = async (client, message) => {
             if (dataText.length > 500) return client.reply(from, 'Teks terlalu panjang!', id)
             var dataBhs = body.slice(5, 7)
 	        if (dataBhs == 'id') {
-                ttsId.save('./tts/resId.mp3', dataText, function () {
-                    client.sendPtt(from, './tts/resId.mp3', id)
+                ttsId.save('./media/tts/resId.mp3', dataText, function () {
+                    client.sendPtt(from, './media/tts/resId.mp3', id)
                 })
 		    } else if (dataBhs == 'en') {
-                ttsEn.save('./tts/resEn.mp3', dataText, function () {
-                    client.sendPtt(from, './tts/resEn.mp3', id)
+                ttsEn.save('./media/tts/resEn.mp3', dataText, function () {
+                    client.sendPtt(from, './media/tts/resEn.mp3', id)
                 })
 		    } else if (dataBhs == 'jp') {
-                ttsJp.save('./tts/resJp.mp3', dataText, function () {
-                    client.sendPtt(from, './tts/resJp.mp3', id)
+                ttsJp.save('./media/tts/resJp.mp3', dataText, function () {
+                    client.sendPtt(from, './media/tts/resJp.mp3', id)
                 })
 		    } else if (dataBhs == 'ar') {
-                ttsAr.save('./tts/resAr.mp3', dataText, function () {
-                    client.sendPtt(from, './tts/resAr.mp3', id)
+                ttsAr.save('./media/tts/resAr.mp3', dataText, function () {
+                    client.sendPtt(from, './media/tts/resAr.mp3', id)
                 })
 		    } else {
 		        client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', id)
@@ -151,7 +151,7 @@ module.exports = msgHandler = async (client, message) => {
             const splitText = text.replace(/(\S+\s*){1,10}/g, '$&\n')
             const fixHeight = splitText.split('\n').slice(0, 25).join('\n')
             spawn('convert', [
-                './img/before.jpg',
+                './media/img/before.jpg',
                 '-font',
                 'Indie-Flower',
                 '-size',
@@ -163,11 +163,11 @@ module.exports = msgHandler = async (client, message) => {
                 '-annotate',
                 '+170+222',
                 fixHeight,
-                './img/after.jpg'
+                './media/img/after.jpg'
             ])
             .on('error', () => client.reply(from, 'Error gan', id))
             .on('exit', () => {
-                client.sendImage(from, './img/after.jpg', 'nulis.jpg', 'Nih mhank', id)
+                client.sendImage(from, './media/img/after.jpg', 'nulis.jpg', 'Nih mhank', id)
             })
             break
         case '!ytmp3':
@@ -414,7 +414,7 @@ module.exports = msgHandler = async (client, message) => {
                     client.reply(from, 'Error !', id)
                 })
             } else {
-                client.sendFile(from, './img/tutod.jpg', 'Tutor.jpg', 'Neh contoh mhank!', id)
+                client.sendFile(from, './media/img/tutod.jpg', 'Tutor.jpg', 'Neh contoh mhank!', id)
             }
             break
         case '!quotemaker':
@@ -737,7 +737,7 @@ module.exports = msgHandler = async (client, message) => {
             const _query = body.slice(4)
             if (!_query.match(isUrl)) return client.reply(from, mess.error.Iv, id)
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!ss [web]*\nContoh *!ss https://google.com*', id)
-            await ss(_query).then(() => client.sendFile(from, './img/screenshot..jpeg', 'ss.jpeg', '', id))
+            await ss(_query).then(() => client.sendFile(from, './media/img/screenshot.jpeg', 'ss.jpeg', '', id))
             .catch(() => client.reply(from, `Error tidak dapat mengambil screenshot website ${_query}`, id))
             break
         case '!quote':
