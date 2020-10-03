@@ -48,6 +48,5 @@ const start = async (client = new Client()) => {
     }
 
 create('BarBar', options(true, start))
-//create('BarBar')
-    .then(async client => await start(client))
+    .then(client => start(client))
     .catch((error) => console.log(error))
