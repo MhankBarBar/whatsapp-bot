@@ -23,8 +23,8 @@ const start = (client = new Client()) => {
         })
 
         
-        client.onAddedToGroup((async (chat) => {
-            let totalMem = await chat.groupMetadata.participants.length
+        client.onAddedToGroup(((chat) => {
+            let totalMem = chat.groupMetadata.participants.length
             if (totalMem < 30) { 
             	client.sendText(chat.id, `Cih member nya cuma ${totalMem}, Kalo mau invite bot, minimal jumlah mem ada 30`).then(() => client.leaveGroup(chat.id)).then(() => client.deleteChat(chat.id))
             } else {
@@ -45,5 +45,5 @@ const start = (client = new Client()) => {
     }
 
 create('BarBar', options(true, start))
-    .then(async client => await start(client))
+    .then(async client => start(client))
     .catch((error) => console.log(error))
