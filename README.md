@@ -25,6 +25,7 @@ Before running the below command, make sure you're in the project directory that
 you've just cloned!!
 
 ```bash
+> npm install gify-cli -g
 > npm i
 ```
 
@@ -48,7 +49,7 @@ Before running this script, first edit [`THIS`](https://github.com/MhankBarBar/w
 | :------------: | :---------------------------------------------: |
 |       ✅        |   YouTube mp3 Downloader                    |
 |       ❌        |   Doujin Downloader         |
-|       ❌        |   Instagram Video/Image Downloader                  |
+|       ✅        |   Instagram Video/Image Downloader                  |
 |       ✅        |   Facebook Video Downloader                  |
 
 
@@ -97,6 +98,11 @@ Before running this script, first edit [`THIS`](https://github.com/MhankBarBar/w
 Make sure all the necessary dependencies are installed.
 [`Troubleshooting`](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md)
 
+Fix Stuck on linux, install google chrome stable:
+```bash
+> wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+> sudo apt install ./google-chrome-stable_current_amd64.deb
+```
 ## Special Thanks to
 * [`open-wa/wa-automate-nodejs`](https://github.com/open-wa/wa-automate-nodejs)
 * [`YogaSakti/imageToSticker`](https://github.com/YogaSakti/imageToSticker)
@@ -104,6 +110,3 @@ Make sure all the necessary dependencies are installed.
 
 ### Donate
 * [`Saweria`](https://saweria.co/donate/mhankbarbar)
-
-### Number of bot
-* [`click here`](https://wa.me/6285242137937)
