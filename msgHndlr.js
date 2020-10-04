@@ -124,24 +124,24 @@ module.exports = msgHandler = async (client, message) => {
             if (dataText === '') return client.reply(from, 'Baka?', id)
             if (dataText.length > 500) return client.reply(from, 'Teks terlalu panjang!', id)
             var dataBhs = body.slice(5, 7)
-	        if (dataBhs == 'id') {
+	    if (dataBhs == 'id') {
                 ttsId.save('./media/tts/resId.mp3', dataText, function () {
                     client.sendPtt(from, './media/tts/resId.mp3', id)
                 })
-		    } else if (dataBhs == 'en') {
+            } else if (dataBhs == 'en') {
                 ttsEn.save('./media/tts/resEn.mp3', dataText, function () {
                     client.sendPtt(from, './media/tts/resEn.mp3', id)
                 })
-		    } else if (dataBhs == 'jp') {
+            } else if (dataBhs == 'jp') {
                 ttsJp.save('./media/tts/resJp.mp3', dataText, function () {
                     client.sendPtt(from, './media/tts/resJp.mp3', id)
                 })
-		    } else if (dataBhs == 'ar') {
+	    } else if (dataBhs == 'ar') {
                 ttsAr.save('./media/tts/resAr.mp3', dataText, function () {
                     client.sendPtt(from, './media/tts/resAr.mp3', id)
                 })
-		    } else {
-		        client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', id)
+            } else {
+                client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', id)
             }
             break
         case '!nulis':
@@ -239,7 +239,7 @@ module.exports = msgHandler = async (client, message) => {
         case '!creator':
             client.sendContact(from, '6285892766102@c.us')
             break
-        /*case '!ig':
+        case '!ig':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!ig [linkIg]* untuk contoh silahkan kirim perintah *!readme*')
             if (!args[1].match(isUrl) && !args[1].includes('instagram.com')) return client.reply(from, mess.error.Iv, id)
             try {
@@ -254,7 +254,7 @@ module.exports = msgHandler = async (client, message) => {
             } catch {
                 client.reply(from, mess.error.Ig, id)
                 }
-            break*/
+            break
         case '!nsfw':
             if (!isGroupMsg) return client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (!isGroupAdmins) return client.reply(from, 'Perintah ini hanya bisa di gunakan oleh Admin group!', id)
