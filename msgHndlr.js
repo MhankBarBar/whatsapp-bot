@@ -12,6 +12,7 @@ const { help, snk, info, donate, readme, listChannel } = require('./lib/help')
 const { stdout } = require('process')
 const nsfw_ = JSON.parse(fs.readFileSync('./lib/NSFW.json'))
 const welkom = JSON.parse(fs.readFileSync('./lib/welcome.json'))
+const { RemoveBgResult, removeBackgroundFromImageBase64, removeBackgroundFromImageFile } = require('remove.bg')
 
 moment.tz.setDefault('Asia/Jakarta').locale('id')
 
@@ -108,6 +109,22 @@ module.exports = msgHandler = async (client, message) => {
                 } else (
                     client.reply(from, '[❗] Kirim video dengan caption *!stickerGif* max 10 sec!', id)
                 )
+            }
+            break
+	case '!stickernobg':
+	    	if (isMedia) {
+              try {
+                var mediaData = await decryptMedia(message, uaOverride)
+                var imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
+                var base64img = imageBase64
+                var outFile = './media/img/noBg.png'
+		//untuk api key kalian bisa dapatkan pada website remove.bg
+                var result = await removeBackgroundFromImageBase64({ base64img, apiKey: 'API-KEY', size: 'auto', type: 'auto', outFile })
+                    await fs.writeFile(outFile, result.base64img)
+                    await client.sendImageAsSticker(from, `data:${mimetype};base64,${result.base64img}`)
+                } catch(err) {
+                    console.log(err)
+                }
             }
             break
         case '!donasi':
