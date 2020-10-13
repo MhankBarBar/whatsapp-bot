@@ -229,17 +229,17 @@ module.exports = msgHandler = async (client, message) => {
                 client.reply(from, `➸ Tempat : ${weather.result.tempat}\n\n➸ Angin : ${weather.result.angin}\n➸ Cuaca : ${weather.result.cuaca}\n➸ Deskripsi : ${weather.result.desk}\n➸ Kelembapan : ${weather.result.kelembapan}\n➸ Suhu : ${weather.result.suhu}\n➸ Udara : ${weather.result.udara}`, id)
             }
             break
-        case '!fb':
+        /*case '!fb':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!fb [linkFb]* untuk contoh silahkan kirim perintah *!readme*', id)
             if (!args[1].includes('facebook.com')) return client.reply(from, mess.error.Iv, id)
             client.reply(from, mess.wait, id)
             const epbe = await fb(args[1])
             client.sendFileFromUrl(from, epbe.url, `Cuih${epbe.exts}`, epbe.capt, id)
-            break
+            break*/
         case '!creator':
             client.sendContact(from, '6285892766102@c.us')
             break
-        case '!ig':
+        /*case '!ig':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!ig [linkIg]* untuk contoh silahkan kirim perintah *!readme*')
             if (!args[1].match(isUrl) && !args[1].includes('instagram.com')) return client.reply(from, mess.error.Iv, id)
             try {
@@ -254,7 +254,7 @@ module.exports = msgHandler = async (client, message) => {
             } catch {
                 client.reply(from, mess.error.Ig, id)
                 }
-            break
+            break*/
         case '!nsfw':
             if (!isGroupMsg) return client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (!isGroupAdmins) return client.reply(from, 'Perintah ini hanya bisa di gunakan oleh Admin group!', id)
