@@ -30,7 +30,7 @@ you've just cloned!!
 ```
 
 ### Usage
-Before running this script, first edit [`THIS`](https://github.com/MhankBarBar/whatsapp-bot/blob/master/msgHndlr.js#L60) section with your WhatsApp number, remember your WhatsApp number!  Not a bot number, then
+Before running this script, first edit [`this section`](https://github.com/MhankBarBar/whatsapp-bot/blob/master/msgHndlr.js#L60) with your WhatsApp number, remember your WhatsApp number!  Not a bot number, then
 ```bash
 > npm start
 ```
@@ -49,8 +49,8 @@ Before running this script, first edit [`THIS`](https://github.com/MhankBarBar/w
 | :------------: | :---------------------------------------------: |
 |       ✅        |   YouTube mp3 Downloader                    |
 |       ❌        |   Doujin Downloader         |
-|       ✅        |   Instagram Video/Image Downloader                  |
-|       ✅        |   Facebook Video Downloader                  |
+|       ❌        |   Instagram Video/Image Downloader                  |
+|       ❌        |   Facebook Video Downloader                  |
 
 
 | Other  |                     Feature                     |
@@ -96,7 +96,7 @@ Before running this script, first edit [`THIS`](https://github.com/MhankBarBar/w
 
 ### Troubleshooting
 Make sure all the necessary dependencies are installed.
-[`Troubleshooting`](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md)
+https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md
 
 Fix Stuck on linux, install google chrome stable:
 ```bash
