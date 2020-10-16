@@ -166,6 +166,19 @@ module.exports = msgHandler = async (client, message) => {
                 client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', id)
             }
             break
+	//Nulis Via API MhankBarBar
+	case '!nulis2':
+	    if (args.length === 1) return client.reply(from, 'Kirim perintah *!nulis2 [teks]*', id)
+	    const nulis = body.slice(8)
+	    client.reply(from, mess.wait, id)
+	    let urlnulis = "https://mhankbarbar.herokuapp.com/nulis?text="+nulis;
+	    let settingnulis = { method: "Get" };
+	    await fetch(urlnulis, settingnulis)
+	    .then(res => res.json())
+	    .then((json) => {
+	        client.sendFile(from, json.result, 'tulisan.jpg','');
+	    }).catch(e => client.reply(from, "Error: "+e));
+	    break
         case '!nulis':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!nulis [teks]*', id)
             const text = body.slice(7)
