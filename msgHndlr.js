@@ -17,6 +17,7 @@ const { help, snk, info, donate, readme, listChannel } = require('./lib/help')
 const { stdout } = require('process')
 const nsfw_ = JSON.parse(fs.readFileSync('./lib/NSFW.json'))
 const welkom = JSON.parse(fs.readFileSync('./lib/welcome.json'))
+const apiMhank = 'API-KEY' //kalian bisa lihat di https://mhankbarbar.herokuapp.com/api untuk mendapatkan api key nya
 const { RemoveBgResult, removeBackgroundFromImageBase64, removeBackgroundFromImageFile } = require('remove.bg')
 
 moment.tz.setDefault('Asia/Jakarta').locale('id')
@@ -198,7 +199,7 @@ module.exports = msgHandler = async (client, message) => {
             if (!isLinks) return client.reply(from, mess.error.Iv, id)
             try {
                 client.reply(from, mess.wait, id)
-                const resp = await get.get('https://mhankbarbar.herokuapp.com/api/yta?url='+ args[1]).json()
+                const resp = await get.get('https://mhankbarbar.herokuapp.com/api/yta?url='+ args[1] + '&apiKey=' + apiMhank).json()
                 if (resp.error) {
                     client.reply(from, resp.error, id)
                 } else {
@@ -218,7 +219,7 @@ module.exports = msgHandler = async (client, message) => {
             if (!isLin) return client.reply(from, mess.error.Iv, id)
             try {
                 client.reply(from, mess.wait, id)
-                const ytv = await get.get('https://mhankbarbar.herokuapp.com/api/ytv?url='+ args[1]).json()
+                const ytv = await get.get('https://mhankbarbar.herokuapp.com/api/ytv?url='+ args[1] + '&apiKey=' + apiMhank).json()
                 if (ytv.error) {
                     client.reply(from, ytv.error, id)
                 } else {
@@ -234,7 +235,7 @@ module.exports = msgHandler = async (client, message) => {
         case '!wiki':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!wiki [query]*\nContoh : *!wiki asu*', id)
             const query_ = body.slice(6)
-            const wiki = await get.get('https://mhankbarbar.herokuapp.com/api/wiki?q='+ query_).json()
+            const wiki = await get.get('https://mhankbarbar.herokuapp.com/api/wiki?q='+ query_ + '&lang=id&apiKey=' + apiMhank).json()
             if (wiki.error) {
                 client.reply(from, wiki.error, id)
             } else {
@@ -244,7 +245,7 @@ module.exports = msgHandler = async (client, message) => {
         case '!cuaca':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!cuaca [tempat]*\nContoh : *!cuaca tangerang', id)
             const tempat = body.slice(7)
-            const weather = await get.get('https://mhankbarbar.herokuapp.com/api/cuaca?q='+ tempat).json()
+            const weather = await get.get('https://mhankbarbar.herokuapp.com/api/cuaca?q='+ tempat + '&apiKey=' + apiMhank).json()
             if (weather.error) {
                 client.reply(from, weather.error, id)
             } else {
@@ -266,7 +267,7 @@ module.exports = msgHandler = async (client, message) => {
             if (!args[1].match(isUrl) && !args[1].includes('instagram.com')) return client.reply(from, mess.error.Iv, id)
             try {
                 client.reply(from, mess.wait, id)
-                const resp = await get.get('https://mhankbarbar.herokuapp.com/api/ig?url='+ args[1]).json()
+                const resp = await get.get('https://mhankbarbar.herokuapp.com/api/ig?url='+ args[1] + '&apiKey=' + apiMhank).json()
                 if (resp.result.includes('.mp4')) {
                     var ext = '.mp4'
                 } else {
@@ -315,21 +316,21 @@ module.exports = msgHandler = async (client, message) => {
             break
         case '!igstalk':
             if (args.length === 1)  return client.reply(from, 'Kirim perintah *!igStalk @username*\nConntoh *!igStalk @duar_amjay*', id)
-            const stalk = await get.get('https://mhankbarbar.herokuapp.com/api/stalk?username='+ args[1]).json()
+            const stalk = await get.get('https://mhankbarbar.herokuapp.com/api/stalk?username='+ args[1] + '&apiKey=' + apiMhank).json()
             if (stalk.error) return client.reply(from, stalk.error, id)
             const { Biodata, Jumlah_Followers, Jumlah_Following, Jumlah_Post, Name, Username, Profile_pic } = stalk
             const caps = `➸ *Nama* : ${Name}\n➸ *Username* : ${Username}\n➸ *Jumlah Followers* : ${Jumlah_Followers}\n➸ *Jumlah Following* : ${Jumlah_Following}\n➸ *Jumlah Postingan* : ${Jumlah_Post}\n➸ *Biodata* : ${Biodata}`
             await client.sendFileFromUrl(from, Profile_pic, 'Profile.jpg', caps, id)
             break
         case '!infogempa':
-            const bmkg = await get.get('https://mhankbarbar.herokuapp.com/api/infogempa').json()
+            const bmkg = await get.get('https://mhankbarbar.herokuapp.com/api/infogempa' + '?apiKey=' + apiMhank).json()
             const { potensi, koordinat, lokasi, kedalaman, magnitude, waktu, map } = bmkg
             const hasil = `*${waktu}*\n📍 *Lokasi* : *${lokasi}*\n〽️ *Kedalaman* : *${kedalaman}*\n💢 *Magnitude* : *${magnitude}*\n🔘 *Potensi* : *${potensi}*\n📍 *Koordinat* : *${koordinat}*`
             client.sendFileFromUrl(from, map, 'shakemap.jpg', hasil, id)
             break
         case '!anime':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!anime [query]*\nContoh : *!anime darling in the franxx*', id)
-            const animek = await get.get('https://mhankbarbar.herokuapp.com/api/dewabatch?q=' + body.slice(7)).json()
+            const animek = await get.get('https://mhankbarbar.herokuapp.com/api/dewabatch?q=' + body.slice(7) + '&apiKey=' + apiMhank).json()
             if (animek.error) return client.reply(from, animek.error, id)
             const res_animek = `${animek.result}\n\n${animek.sinopsis}`
             client.sendFileFromUrl(from, animek.thumb, 'dewabatch.jpg', res_animek, id)
@@ -618,7 +619,7 @@ module.exports = msgHandler = async (client, message) => {
         case '!chord':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!chord [query]*, contoh *!chord aku bukan boneka*', id)
             const query__ = body.slice(7)
-            const chord = await get.get('https://mhankbarbar.herokuapp.com/api/chord?q='+ query__).json()
+            const chord = await get.get('https://mhankbarbar.herokuapp.com/api/chord?q='+ query__ + '&apiKey=' + apiMhank).json()
             if (chord.error) return client.reply(from, chord.error, id)
             client.reply(from, chord.result, id)
             break
@@ -636,7 +637,7 @@ module.exports = msgHandler = async (client, message) => {
         case '!jadwalshalat':
             if (args.length === 1) return client.reply(from, '[❗] Kirim perintah *!jadwalShalat [daerah]*\ncontoh : *!jadwalShalat Tangerang*\nUntuk list daerah kirim perintah *!listDaerah*')
             const daerah = body.slice(14)
-            const jadwalShalat = await get.get(`https://mhankbarbar.herokuapp.com/api/jadwalshalat?daerah=${daerah}`).json()
+            const jadwalShalat = await get.get(`https://mhankbarbar.herokuapp.com/api/jadwalshalat?daerah=${daerah}` + '&apiKey=' + apiMhank).json()
             if (jadwalShalat.error) return client.reply(from, jadwalShalat.error, id)
             const { Imsyak, Subuh, Dhuha, Dzuhur, Ashar, Maghrib, Isya } = await jadwalShalat
             arrbulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
@@ -664,7 +665,7 @@ module.exports = msgHandler = async (client, message) => {
             client.sendFileFromUrl(from, loli.result, 'loli.jpeg', 'Lolinya om', id)
             break
         case '!waifu':
-            const waifu = await get.get('https://mhankbarbar.herokuapp.com/api/waifu').json()
+            const waifu = await get.get('https://mhankbarbar.herokuapp.com/api/waifu' + '?apiKey=' + apiMhank).json()
             client.sendFileFromUrl(from, waifu.image, 'Waifu.jpg', `➸ Name : ${waifu.name}\n➸ Description : ${waifu.desc}\n\n➸ Source : ${waifu.source}`, id)
             break
         case '!husbu':
