@@ -119,7 +119,7 @@ module.exports = msgHandler = async (client, message) => {
             break
 	    case '!stickernobg':
         case '!stikernobg':
-	    	if (isMedia) {
+	    if (isMedia) {
                 try {
                     var mediaData = await decryptMedia(message, uaOverride)
                     var imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
@@ -142,7 +142,7 @@ module.exports = msgHandler = async (client, message) => {
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!tts [id, en, jp, ar] [teks]*, contoh *!tts id halo semua*')
             const ttsId = require('node-gtts')('id')
             const ttsEn = require('node-gtts')('en')
-	        const ttsJp = require('node-gtts')('ja')
+	    const ttsJp = require('node-gtts')('ja')
             const ttsAr = require('node-gtts')('ar')
             const dataText = body.slice(8)
             if (dataText === '') return client.reply(from, 'Baka?', id)
@@ -160,7 +160,7 @@ module.exports = msgHandler = async (client, message) => {
                 ttsJp.save('./media/tts/resJp.mp3', dataText, function () {
                     client.sendPtt(from, './media/tts/resJp.mp3', id)
                 })
-	        } else if (dataBhs == 'ar') {
+	    } else if (dataBhs == 'ar') {
                 ttsAr.save('./media/tts/resAr.mp3', dataText, function () {
                     client.sendPtt(from, './media/tts/resAr.mp3', id)
                 })
@@ -245,7 +245,7 @@ module.exports = msgHandler = async (client, message) => {
             client.reply(from, mess.wait, id)
             const epbe = await get.get(`https://mhankbarbar.herokuapp.com/api/epbe?url=${args[1]}&apiKey=${apiKey}`).json()
             if (epbe.error) return client.reply(from, epbe.error, id)
-            client.sendFileFromUrl(from, epbe.result.sdQuality, 'epbe.mp4', epbe.title, id)
+            client.sendFileFromUrl(from, epbe.result, 'epbe.mp4', epbe.title, id)
             break
         case '!creator':
             client.sendContact(from, '6285892766102@c.us')
@@ -321,7 +321,7 @@ module.exports = msgHandler = async (client, message) => {
             const animek = await get.get(`https://mhankbarbar.herokuapp.com/api/kuso?q=${body.slice(7)}&apiKey=${apiKey}`).json()
             if (animek.error) return client.reply(from, animek.error, id)
             const res_animek = `Title: *${animek.title}*\n\n${animek.info}\n\nSinopsis: ${animek.sinopsis}\n\nLink Download:\n${animek.link_dl}`
-            client.sendFileFromUrl(from, animek.thumb, 'dewabatch.jpg', res_animek, id)
+            client.sendFileFromUrl(from, animek.thumb, 'kusonime.jpg', res_animek, id)
             break
         case '!nh':
             //if (isGroupMsg) return client.reply(from, 'Sorry this command for private chat only!', id)
