@@ -411,7 +411,7 @@ module.exports = msgHandler = async (client, message) => {
                     if (similarity < 0.92) {
                     	teks = '*Saya memiliki keyakinan rendah dalam hal ini* :\n\n'
                     }
-                    teks += `➸ *Title Japanese* : ${title}\n➸ *Title chinese* : ${title_chinese}\n➸ *Title Romaji* : ${title_romaji}\n➸ *Title English* : ${title_english}\n`
+                    teks += `➸ *Titulo em Japonês* : ${title}\n➸ *Titulo em chinês* : ${title_chinese}\n➸ *Titulo Romaji* : ${title_romaji}\n➸ *Titulo em Inglês* : ${title_english}\n`
                     teks += `➸ *Ecchi* : ${is_adult}\n`
                     teks += `➸ *Eps* : ${episode.toString()}\n`
                     teks += `➸ *Kesamaan* : ${(similarity * 100).toFixed(1)}%\n`
