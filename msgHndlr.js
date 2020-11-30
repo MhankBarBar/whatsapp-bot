@@ -594,6 +594,19 @@ module.exports = msgHandler = async (client, message) => {
             if (!quotedMsgObj.fromMe) return client.reply(from, 'Salah!!, Bot tidak bisa mengahpus chat user lain!', id)
             client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
             break
+		case '!mutegrup':
+			if (!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
+            if (!isGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan oleh admin group', id)
+            if (!isBotGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan ketika bot menjadi admin', id)
+			if (args.length === 1) return client.reply(from, 'Untuk mengubah settingan group chat agar hanya admin saja yang bisa chat\n\nPenggunaan:\n!mutegrup on --aktifkan\n!mutegrup off --nonaktifkan', id)
+            if (args[1] == 'on') {
+				client.setGroupToAdminsOnly(groupId, true).then(() => client.sendText(from, 'Berhasil mengubah agar hanya admin yang dapat chat!'))
+			} else if (args[1] == 'off') {
+				client.setGroupToAdminsOnly(groupId, false).then(() => client.sendText(from, 'Berhasil mengubah agar semua anggota dapat chat!'))
+			} else {
+				client.reply(from, 'Perintah salah! silahkan ketik !mutegrup untuk melihat contoh', id)
+			}
+			break
         case '!getses':
             const sesPic = await client.getSnapshot()
             client.sendFile(from, sesPic, 'session.png', 'Neh...', id)
@@ -766,6 +779,30 @@ module.exports = msgHandler = async (client, message) => {
             const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
             client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
             break
+		case '!nhentai':
+			if (args.length == 1) return client.reply(from, 'Untuk menggunakan !nhentai kirim perintah sebagai berikut!\n\n1. !nhentai id Query\ncontoh: !nhentai id naruto\n\n2. !nhentai dl Nuklir\ncontoh: !nhentai dl 171819', id)
+			if (args[1] == 'id') {
+				axios.get(`https://mhankbarbar.herokuapp.com/api/nhentai?type=search&query=${encodeURIComponent(body.slice(9))}&apiKey=${apiKey}`)
+				.then(async (res) => {
+					if (res.data.error) return client.reply(from, res.data.error, id)
+					let hentaiId = 'Pencarian Nhentai ditemukan!\n\n'
+					for (let i = 0; i < res.data.result.length; i++) {
+						hentaiId += `\n----------\nJudul: ${res.data.result[i].title}\nBahasa: ${res.data.result[i].lang}\nNuklir: ${res.data.result[i].id}\n`
+					}
+					await client.sendFileFromUrl(from, res.data.result[0].cover, 'nhentaiId.jpg', hentaiId, id)
+				})
+				.catch((err) => console.log(err))
+			} else if (args[1] == 'dl') {
+				axios.get(`https://mhankbarbar.herokuapp.com/api/nhentai?type=download&nuklir=${args[2]}&apiKey=${apiKey}`)
+				.then(async (res) => {
+					if (res.data.error) return client.reply(from, res.data.error, id)
+					await client.sendFileFromUrl(from, res.data.thumb, 'nhentaiDL.jpg', `Data ditemukan!\n\nJudul: ${res.data.title}\nArtist: ${res.data.artists}\nKategori: ${res.data.categories}\nNuklir: ${res.data.id}\nBahasa: ${res.data.languages}\nTags: ${res.data.tags}\n\nTunggu beberapa saat, file PDF akan segera dikirim!`, id)
+					await client.sendFileFromUrl(from, res.data.result, `${res.data.title}.pdf`, 'MhankBarBar NHentai', id)
+				})
+			} else {
+				client.reply(from, 'Perintah salah! silahkan ketik !nhentai untuk melihat contoh')
+			} 
+			break
         case '!help':
             client.sendText(from, help)
             break
