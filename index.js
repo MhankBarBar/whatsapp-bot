@@ -47,6 +47,6 @@ const start = async (client = new Client()) => {
         }))
     }
 
-create('BarBar', options(true, start))
+create(options(true, start))
     .then(client => start(client))
     .catch((error) => console.log(error))
