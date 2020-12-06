@@ -134,6 +134,17 @@ module.exports = msgHandler = async (client, message) => {
                 }
             }
             break
+	case '!stickertoimg':
+	case '!stikertoimg':
+	case '!toimg':
+	    if (args.length === 2) return client.reply(from, 'Reply sticker yang ingin diconvert menjadi gambar dengan perintah\n *!toimg*', id)
+            if (quotedMsg && quotedMsg.type == 'sticker') {
+                const mediaData = await decryptMedia(quotedMsg)
+                client.reply(from, '[WAIT] Sedang di proses⏳ silahkan tunggu!', id)
+                const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
+                await client.sendFile(from, imageBase64, 'imagesticker.jpg', 'Berhasil mengkonversi stiker menjadi gambar!', id)
+            } else if (!quotedMsg) return client.reply(from, 'Mohon tag sticker yang ingin dijadikan gambar!', id)
+            break
         case '!donasi':
         case '!donate':
             client.sendLinkWithAutoPreview(from, 'https://saweria.co/donate/mhankbarbar', donate)
