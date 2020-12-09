@@ -32,7 +32,9 @@
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/puppeteer": "^5.4.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mhankbarbar/whatsapp-bot.git"
