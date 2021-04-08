@@ -29,9 +29,9 @@ const start = async (client = new Client()) => {
         client.onAddedToGroup(((chat) => {
             let totalMem = chat.groupMetadata.participants.length
             if (totalMem < 30) { 
-            	client.sendText(chat.id, `Cih member nya cuma ${totalMem}, Kalo mau invite bot, minimal jumlah mem ada 30`).then(() => client.leaveGroup(chat.id)).then(() => client.deleteChat(chat.id))
+            	client.sendText(chat.id, `Os membros são apenas ${totalMem}, se você quiser convidar o bot, o número mínimo de membros é 30`).then(() => client.leaveGroup(chat.id)).then(() => client.deleteChat(chat.id))
             } else {
-                client.sendText(chat.groupMetadata.id, `Halo warga grup *${chat.contact.name}* terimakasih sudah menginvite bot ini, untuk melihat menu silahkan kirim *!help*`)
+                client.sendText(chat.groupMetadata.id, `Olá membros do grupo * $ {chat.contact.name} obrigado por convidar este bot, para ver o menu envie /mv`)
             }
         }))
 
@@ -42,7 +42,7 @@ const start = async (client = new Client()) => {
 
         // listening on Incoming Call
         client.onIncomingCall(( async (call) => {
-            await client.sendText(call.peerJid, 'Maaf, saya tidak bisa menerima panggilan. nelfon = block!')
+            await client.sendText(call.peerJid, 'Não consigo receber chamadas. Ligou novamente= bock!')
             .then(() => client.contactBlock(call.peerJid))
         }))
     }
