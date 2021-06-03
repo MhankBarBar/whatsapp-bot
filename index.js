@@ -21,7 +21,7 @@ const start = async (client = new Client()) => {
             msgHandler(client, message)
         }))
 
-        client.onGlobalParicipantsChanged((async (heuh) => {
+        client.onGlobalParticipantsChanged((async (heuh) => {
             await welcome(client, heuh)
             //left(client, heuh)
             }))
