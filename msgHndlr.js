@@ -3,9 +3,7 @@
  * Amat besar kebencian di sisi Allah bahwa kamu mengatakan apa-apa yang tidak kamu kerjakan."
  * (QS ash-Shaff: 2-3).
  */
-const {
-    decryptMedia
-} = require('@open-wa/wa-decrypt')
+const { decryptMedia } = require('@open-wa/wa-decrypt')
 const fs = require('fs-extra')
 const axios = require('axios')
 const moment = require('moment-timezone')
@@ -33,7 +31,8 @@ const processTime = (timestamp, now) => {
 }
 
 moment.tz.setDefault('Asia/Jakarta').locale('id')
-
+module.exports = msgHandler = async (client, message) => {
+    try {
 const { type, id, from, t, sender, isGroupMsg, chat, caption, isMedia, mimetype, quotedMsg, quotedMsgObj, mentionedJidList } = message
         let { body } = message
         const { name, formattedTitle } = chat
@@ -45,9 +44,9 @@ const { type, id, from, t, sender, isGroupMsg, chat, caption, isMedia, mimetype,
 
         const msgs = (message) => {
             if (command.startsWith('!')) {
-                if (message.length >= 10) {
+                if (message.length >= 10){
                     return `${message.substr(0, 15)}`
-                } else {
+                }else{
                     return `${message}`
                 }
             }
