@@ -17,6 +17,7 @@
 <a href="https://github.com/mhankbarbar/whatsapp-bot/network/members"><img title="Forks" src="https://img.shields.io/github/forks/mhankbarbar/whatsapp-bot?color=red&style=flat-square"></a>
 <a href="https://github.com/mhankbarbar/whatsapp-bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/mhankbarbar/whatsapp-bot?label=Watchers&color=blue&style=flat-square"></a>
 <a href="#"><img title="UNMAINTENED" src="https://img.shields.io/badge/UNMAINTENED-YES-blue.svg"</a>
+<a href="https://github.com/mhankbarbar/whatsapp-bot/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%20License%202.0-green?style=flat-square" alt="shield.png">
 </p>
 
 ## Clone this project
