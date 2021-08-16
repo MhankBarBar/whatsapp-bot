@@ -44,18 +44,18 @@ Before running this script, first edit [this section](https://github.com/MhankBa
 
 | Sticker Creator |                Feature           |
 | :-----------: | :--------------------------------: |
-|       ✅       | Send Photo with Caption          |
-|       ✅       | Reply A Photo                    |
-|       ✅       | Image Url                        |
-|       ✅       | Send Video or GIF with Caption   |
+|       ✅       | Send photo with caption          |
+|       ✅       | Reply a photo                    |
+|       ✅       | Image URL                        |
+|       ✅       | Send video or GIF with caption   |
 
 
 | Downloader |                     Feature                |
 | :------------: | :---------------------------------------------: |
-|       ✅        |   YouTube mp3/mp4 Downloader                    |
-|       ❌        |   Doujin Downloader         |
-|       ✅        |   Instagram Video/Image Downloader                  |
-|       ✅        |   Facebook Video Downloader                  |
+|       ✅        |   YouTube video (mp3/mp4)                    |
+|       ❌        |   Doujin         |
+|       ✅        |   Instagram video & image                  |
+|       ✅        |   Facebook video                  |
 
 
 | Other  |                     Feature                     |
@@ -65,8 +65,8 @@ Before running this script, first edit [this section](https://github.com/MhankBa
 |       ✅        |   Get a random waifu images     |
 |       ✅        |   Get a random quotes           |
 |       ✅        |   Get a random anime quotes     |
-|       ✅        |   Get info gempa from BMKG      |
-|       ✅        |   Weather's report's     |
+|       ✅        |   Get earthquake info from BMKG      |
+|       ✅        |   Weather's report    |
 |       ✅        |   Wikipedia                 |
 |       ✅        |   Anime searcher    |
 |       ✅        |   Get a random cat images       |
@@ -76,26 +76,26 @@ Before running this script, first edit [this section](https://github.com/MhankBa
 
 | Group Only  |                     Feature                     |
 | :------------: | :---------------------------------------------: |
-|       ✅        |   Promote User                  |
-|       ✅        |   Demote User                   |
-|       ✅        |   Kick User                     |
-|       ✅        |   Add User                      |
-|       ✅        |   Mention All User              |
-|       ✅        |   Get link group                |
-|       ✅        |   Get Admin list                |
-|       ✅        |   Get owner group               |
-|       ✅        |   enable or disable nsfw command|
-|       ✅        |   enable or disable welcome feature|
+|       ✅        |   Promote user                  |
+|       ✅        |   Demote user                   |
+|       ✅        |   Kick user                     |
+|       ✅        |   Add user                      |
+|       ✅        |   Mention all user              |
+|       ✅        |   Get group's link                |
+|       ✅        |   Get admin list                |
+|       ✅        |   Get group's owner               |
+|       ✅        |   Enable or disable NSFW command|
+|       ✅        |   Enable or disable welcome feature|
 
 
 | Owner Group Only  |              Feature                |
 | :------------: | :---------------------------------------------: |
-|       ✅        |   Kick All Member Group                 |
+|       ✅        |   Kick all group's member                 |
 
 | Owner Bot Only  |              Feature                |
 | :------------: | :---------------------------------------------: |
-|       ✅        |   leave all group                   |
-|       ✅        |   clear all message                 |
+|       ✅        |   Leave all groups                   |
+|       ✅        |   Clear all messages                 |
 |       ✅        |   Broadcast                      |
 
 
