@@ -21,6 +21,10 @@ const start = async (client = new Client()) => {
             msgHandler(client, message)
         }))
 
+        client.onfinish((finish) => {
+            console.log('[Client State]', finish)
+        }
+
         client.onGlobalParticipantsChanged((async (heuh) => {
             await welcome(client, heuh)
             //left(client, heuh)
