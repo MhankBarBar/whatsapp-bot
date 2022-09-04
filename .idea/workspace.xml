@@ -9,12 +9,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PATH_TO_GIT" value="C:\Users\aviadohana\Documents\GitHub\whatsapp-bot\.github\workflows\npm-publish-github-packages.yml" />
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="2EI6APA2HbTzkb8rnMhY3GUn77j" />
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.github/workflows/npm-publish-github-packages.yml" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -34,7 +39,8 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration useDefault="false">C:\Users\aviadohana\AppData\Roaming\Subversion</configuration>
+    <option name="runUnderTerminal" value="true" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,7 +82,9 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
