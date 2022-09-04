@@ -8,12 +8,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="PATH_TO_GIT" value="C:\Users\aviadohana\Documents\GitHub\whatsapp-bot\.github\workflows\npm-publish-github-packages.yml" />
+    <option name="PATH_TO_GIT" value="C:\Users\aviadohana\Documents\GitHub\whatsapp-bot\.gitignore" />
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="2EI6APA2HbTzkb8rnMhY3GUn77j" />
   <component name="ProjectViewState">
@@ -25,7 +25,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.github/workflows/npm-publish-github-packages.yml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.gitignore" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunAnythingCache">
@@ -33,7 +36,19 @@
       <command value="run index.js" />
     </option>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration useDefault="false">C:\Users\aviadohana\AppData\Roaming\Subversion</configuration>
     <option name="runUnderTerminal" value="true" />
@@ -82,11 +97,16 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="USE_CUSTOM_SHELF_PATH" value="true" />
+    <option name="CUSTOM_SHELF_PATH" value="$PROJECT_DIR$/.idea/shelf" />
   </component>
 </project>
